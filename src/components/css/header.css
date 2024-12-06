@@ -1,0 +1,493 @@
+.hederMainContainer{
+    height:123px;
+}
+
+.navbar-brand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.navbar-brand .Logo{
+    width:20 !important;
+    height:20 !important;
+    color:black;
+}
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+.headerCartIcon{
+    width:40px; 
+    height:40px;
+    color:white;
+}
+.headerIconsCont{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 20%;
+    gap: 22px;
+    padding-right: 22px;
+}
+.headerCartIcon{
+    width:40px !important;
+    height:40px !important;
+}
+.CartCountstyleCont{
+    position: relative;
+}
+.CartCountstyle{
+    position:absolute;
+    right:0;
+    top:-6px;
+    background:red;
+    border-radius:50%;
+    width:20px;
+    height:20px;
+    font-size:16px;
+    font-weight: 600;
+    color:white;
+    padding:0 0 6px 2px !important;
+    line-height: 20px;
+    cursor:pointer;
+}
+.WishlistCountCont{
+    position: relative;
+}
+
+.WishlistCountstyle{
+    position:absolute;
+    right:0;
+    top:-9px;
+    background:red;
+    border-radius:50%;
+    width:18px;
+    height:18px;
+    font-size:16px;
+    font-weight: 600;
+    color:white;
+    padding:0 0 9px 6px !important;
+    line-height: 17px;
+    cursor:pointer;
+}
+.profileIconCont{
+    padding:0px;
+}
+.profileIcon {
+    width:26px !important;
+    height:26px !important;
+}
+.wishlistIcon{
+    width:30px !important;
+    height:25px !important;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+.dropdownMenu{
+    --bs-dropdown-min-width: 4rem !important;
+    --bs-dropdown-padding-y: 0.5rem !important;
+}
+.dropdown-menu.show {
+    display: block;
+    width: auto;
+    padding: 20px 0;
+}
+.dropdownMenu li{
+  margin-bottom: 7px;
+}
+.dropdownMenu a{
+    cursor: pointer;
+    font-size: 16px ;
+    font-weight: 600;
+}
+.dropdownMenu a img{
+    width: 25px;
+    height: auto;
+    margin-right: 5px;
+}
+.dropdownMenu a:hover{
+    color: rgb(255, 102, 0) !important;
+}
+.active{
+    color: rgb(255, 102, 0) !important;
+    font-weight: 600 !important;
+}
+.HeaderNavItem:hover{
+    color: rgb(211, 153, 153) !important;
+}
+.form-switch .form-check-input{
+    width: 3em !important;
+}
+.form-check-input{
+    height: 1.5em !important;
+    border: 2px solid rgb(214, 214, 214) !important;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 425px) {
+    .hederMainContainer{
+        height:100px;
+    }
+    .navbar .container{
+        display: flex;
+        flex-wrap: unset;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .navbar-brand .Logo{
+        width:40px;
+        height:40px ;
+        color:black;
+    }
+    .navbar-brand h1{
+        font-size: 22px;
+    }
+    .headerIconsCont{
+        display: flex;
+        align-items: center;
+        justify-content: space-between !important;
+        width: 40%;
+    }
+    .profileIconCont button{
+        width: 20px;
+        border: none;
+        margin-right: 10px;
+    }
+    .profileIcon {
+        width:26px !important;
+        height:26px !important;
+    }
+    .wishlistIcon{
+        width:20px !important;
+        height:22px !important;
+    }
+    .headerCartIcon{
+        width:30px !important;
+        height:25px !important;
+    }
+    .CartCountstyleCont{
+        position: relative;
+    }
+    .CartCountstyle{
+        right:0;
+        top:-6px;
+        width:15px;
+        height:15px;
+        font-size:11px;
+        font-weight: 400;
+        padding:0 0 6px 4px !important;
+        line-height: 15px;
+    }
+    .navbar-toggler-icon{
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8klEQVR4nO3by03DUBiE0U+iGkDUzmMFNIVIdtkEWXIDMb7iWpwjTQP/JHYWkwIAAAAAAPjfHqu36ru6Sr+5wXLD1+phaxlP1VkJ7f1BPK+3vdmnMhr1VPi4tYy76qKQRhVyWW+skA5aiEdWQwt5bwMv9YaUcdr6Um/9ifZSfU3wNb8ePMsNn6v7rWUAAAAAAAAAAMA21u/tNgOyfm/OWL83X6zfmyvW7x28kIU/7DSsEOv35on1e3PE+h0AAAAAAAAAgD9i/d5uMyDr9+aM9Xvzxfq9uWL93sELWVi/N6wQ6/fmifV7c8T6HQAAAAAAiPoB41UQH484jJsAAAAASUVORK5CYII=") !important;
+    }
+    .dropdownMenu{
+        --bs-dropdown-min-width: 6rem !important;
+        --bs-dropdown-padding-y: 0.1rem !important;
+    }
+    .WishlistCountstyle{
+        right:-6px;
+        top:-5px;
+        width:15px;
+        height:15px;
+        font-size:11px;
+        font-weight: 600;
+        padding:0 0 9px 5px !important;
+        line-height: 14px;
+    }
+}
+@media only screen and (min-width: 426px) and (max-width: 767px) {
+    .hederMainContainer{
+        height:100px;
+    }
+    .navbar .container{
+        display: flex;
+        flex-wrap: unset;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .navbar-brand .Logo{
+        width:40px;
+        height:40px ;
+        color:black;
+    }
+    .navbar-brand h1{
+        font-size: 22px;
+    }
+    .headerIconsCont{
+        display: flex;
+        align-items: center;
+        justify-content: space-between !important;
+        width: 16%;
+    }
+    .profileIconCont button{
+        border: none;
+        width: 30px;
+        padding:0px !important;
+    }
+    .profileIcon {
+        width:26px !important;
+        height:26px !important;
+    }
+    .wishlistIcon{
+        width:20px !important;
+        height:22px !important;
+    }
+    .headerCartIcon{
+        width:25px !important;
+        height:25px !important;
+    }
+    .CartCountstyleCont{
+        position: relative;
+    }
+    .CartCountstyle{
+        right:0;
+        top:-6px;
+        width:15px;
+        height:15px;
+        font-size:12px;
+        font-weight: 400;
+        line-height: 15px;
+        padding:0 0 6px 5px !important;
+    }
+    .navbar-toggler-icon{
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8klEQVR4nO3by03DUBiE0U+iGkDUzmMFNIVIdtkEWXIDMb7iWpwjTQP/JHYWkwIAAAAAAPjfHqu36ru6Sr+5wXLD1+phaxlP1VkJ7f1BPK+3vdmnMhr1VPi4tYy76qKQRhVyWW+skA5aiEdWQwt5bwMv9YaUcdr6Um/9ifZSfU3wNb8ePMsNn6v7rWUAAAAAAAAAAMA21u/tNgOyfm/OWL83X6zfmyvW7x28kIU/7DSsEOv35on1e3PE+h0AAAAAAAAAgD9i/d5uMyDr9+aM9Xvzxfq9uWL93sELWVi/N6wQ6/fmifV7c8T6HQAAAAAAiPoB41UQH484jJsAAAAASUVORK5CYII=") !important;
+    }
+    .dropdownMenu{
+        --bs-dropdown-min-width: 6rem !important;
+        --bs-dropdown-padding-y: 0.1rem !important;
+    }
+    .WishlistCountstyle{
+        right:-6px;
+        top:-5px;
+        width:15px;
+        height:15px;
+        font-size:11px;
+        font-weight: 600;
+        padding:0 0 9px 5px !important;
+        line-height: 14px;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .hederMainContainer{
+        height:115px;
+    }
+    .navbar .container{
+        display: flex;
+        flex-wrap: unset;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .navbar-brand .Logo{
+        width:45px;
+        height:45px ;
+        color:black;
+    }
+    .navbar-brand h1{
+        font-size: 30px;
+    }
+    .headerIconsCont{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        width: 60%;
+        gap: 40px;
+        padding-right: 22px;
+    }
+    .profileIconCont button{
+        width: 30px;
+        border: none;
+        margin-right: 10px;
+    }
+    .profileIcon {
+        width:30px !important;
+        height:30px !important;
+    }
+    .wishlistIcon{
+        width:30px !important;
+        height:25px !important;
+    }
+    .headerCartIcon{
+        width:35px !important;
+        height:30px !important;
+    }
+    .CartCountstyleCont{
+        position: relative;
+    }
+    .CartCountstyle{
+        right:0;
+        top:-6px;
+        width:15px;
+        height:15px;
+        font-size:11px;
+        font-weight: 400;
+        padding:0 0 6px 4px !important;
+        line-height: 15px;
+    }
+    .navbar-toggler-icon{
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8klEQVR4nO3by03DUBiE0U+iGkDUzmMFNIVIdtkEWXIDMb7iWpwjTQP/JHYWkwIAAAAAAPjfHqu36ru6Sr+5wXLD1+phaxlP1VkJ7f1BPK+3vdmnMhr1VPi4tYy76qKQRhVyWW+skA5aiEdWQwt5bwMv9YaUcdr6Um/9ifZSfU3wNb8ePMsNn6v7rWUAAAAAAAAAAMA21u/tNgOyfm/OWL83X6zfmyvW7x28kIU/7DSsEOv35on1e3PE+h0AAAAAAAAAgD9i/d5uMyDr9+aM9Xvzxfq9uWL93sELWVi/N6wQ6/fmifV7c8T6HQAAAAAAiPoB41UQH484jJsAAAAASUVORK5CYII=") !important;
+    }
+    .dropdownMenu{
+        --bs-dropdown-min-width: 6rem !important;
+        --bs-dropdown-padding-y: 0.1rem !important;
+    }
+    .WishlistCountstyle{
+        right:-2px;
+        top:-9px;
+        width:15px;
+        height:15px;
+        font-size:11px;
+        font-weight: 600;
+        padding:0 0 9px 4px !important;
+        line-height: 14px;
+    }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+    .hederMainContainer{
+        height:120px;
+    }
+    .navbar .container{
+        display: flex;
+        flex-wrap: unset;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .navbar-brand .Logo{
+        width:50px;
+        height:50px ;
+        color:black;
+    }
+    .navbar-brand h1{
+        font-size: 35px;
+    }
+    .headerIconsCont{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        width: 10%;
+        gap: 30px;
+        padding-right: 22px;
+    }
+    .profileIconCont button{
+        width: 30px;
+        border: none;
+        margin-right: 10px;
+    }
+    .profileIcon {
+        width:30px !important;
+        height:30px !important;
+    }
+    .wishlistIcon{
+        width:30px !important;
+        height:25px !important;
+    }
+    .headerCartIcon{
+        width:35px !important;
+        height:30px !important;
+    }
+    .CartCountstyleCont{
+        position: relative;
+    }
+    .CartCountstyle{
+        right:0;
+        top:-6px;
+        width:15px;
+        height:15px;
+        font-size:11px;
+        font-weight: 400;
+        padding:0 0 6px 4px !important;
+        line-height: 15px;
+    }
+    .navbar-toggler-icon{
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8klEQVR4nO3by03DUBiE0U+iGkDUzmMFNIVIdtkEWXIDMb7iWpwjTQP/JHYWkwIAAAAAAPjfHqu36ru6Sr+5wXLD1+phaxlP1VkJ7f1BPK+3vdmnMhr1VPi4tYy76qKQRhVyWW+skA5aiEdWQwt5bwMv9YaUcdr6Um/9ifZSfU3wNb8ePMsNn6v7rWUAAAAAAAAAAMA21u/tNgOyfm/OWL83X6zfmyvW7x28kIU/7DSsEOv35on1e3PE+h0AAAAAAAAAgD9i/d5uMyDr9+aM9Xvzxfq9uWL93sELWVi/N6wQ6/fmifV7c8T6HQAAAAAAiPoB41UQH484jJsAAAAASUVORK5CYII=") !important;
+    }
+    .dropdownMenu{
+        --bs-dropdown-min-width: 6rem !important;
+        --bs-dropdown-padding-y: 0.1rem !important;
+    }
+    .WishlistCountstyle{
+        right:-2px;
+        top:-9px;
+        width:15px;
+        height:15px;
+        font-size:11px;
+        font-weight: 600;
+        padding:0 0 9px 5px !important;
+        line-height: 14px;
+    }
+}
+@media only screen and (min-width: 1440px) and (max-width: 1920px) {
+    .hederMainContainer{
+        height:130px !important;
+    }
+    .navbar .container{
+        display: flex;
+        flex-wrap: unset;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .navbar-brand .Logo{
+        width:50px;
+        height:50px ;
+        color:black;
+    }
+    .navbar-brand h1{
+        font-size: 35px;
+    }
+    .headerIconsCont{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        width: 20%;
+        gap: 30px;
+        padding-right: 22px;
+    }
+    .profileIconCont button{
+        width: 30px;
+        border: none;
+        margin-right: 10px;
+    }
+    .profileIcon {
+        width:30px !important;
+        height:30px !important;
+    }
+    .wishlistIcon{
+        width:30px !important;
+        height:25px !important;
+    }
+    .headerCartIcon{
+        width:35px !important;
+        height:30px !important;
+    }
+    .CartCountstyleCont{
+        position: relative;
+    }
+    .CartCountstyle{
+        right:0;
+        top:-5px;
+        width:18px;
+        height:18px;
+        font-size:14px;
+        font-weight: 600;
+        padding:0 0 6px 5px !important;
+        line-height: 18px;
+    }
+    .navbar-toggler-icon{
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8klEQVR4nO3by03DUBiE0U+iGkDUzmMFNIVIdtkEWXIDMb7iWpwjTQP/JHYWkwIAAAAAAPjfHqu36ru6Sr+5wXLD1+phaxlP1VkJ7f1BPK+3vdmnMhr1VPi4tYy76qKQRhVyWW+skA5aiEdWQwt5bwMv9YaUcdr6Um/9ifZSfU3wNb8ePMsNn6v7rWUAAAAAAAAAAMA21u/tNgOyfm/OWL83X6zfmyvW7x28kIU/7DSsEOv35on1e3PE+h0AAAAAAAAAgD9i/d5uMyDr9+aM9Xvzxfq9uWL93sELWVi/N6wQ6/fmifV7c8T6HQAAAAAAiPoB41UQH484jJsAAAAASUVORK5CYII=") !important;
+    }
+    .dropdownMenu{
+        --bs-dropdown-min-width: 6rem !important;
+        --bs-dropdown-padding-y: 0.1rem !important;
+    }
+    .WishlistCountstyle{
+        right:-2px;
+        top:-9px;
+        width:18px;
+        height:18px;
+        font-size:14px;
+        font-weight: 600;
+        padding:2px 0 9px 5px !important;
+        line-height: 14px;
+    }
+}
