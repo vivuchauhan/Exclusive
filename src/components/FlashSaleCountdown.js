@@ -6,7 +6,7 @@ import "./css/home.css";
 const FlashSaleCountdown = () => {
   // ... your existing countdown logic here
   const calculateRemainingTime = () => {
-    const flashSaleEndTime = new Date('2024-10-10T18:00:00Z');
+    const flashSaleEndTime = new Date('2026-12-10T18:00:00Z');
     const now = new Date();
     
     let differenceInSeconds = Math.floor((flashSaleEndTime - now) / 1000);
