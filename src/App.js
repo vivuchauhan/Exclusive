@@ -21,6 +21,7 @@ import Checkout from './components/checkout';
 import Orders from './components/orders';
 import BestSelling from './components/bestSelling';
 import Cancellation from './components/cancellationOrder';
+import { Portfolio } from './components/portfolio';
 
 function App() {
 
@@ -49,6 +50,8 @@ function App() {
           <Route path="/orders" element={<Orders />} />
           <Route path="/bestSelling" element={<BestSelling />} />
           <Route path="/cancellation" element={<Cancellation />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+
         </Routes>
       </BrowserRouter>
     </>

@@ -3,9 +3,9 @@ import "./css/product.css";
 import "./css/home.css";
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromWishlist, addToCart, productDetail } from '../redux/action/action.js';
-import Header from './Header';
-import Footer from './footer';
-import LoginForm from './login';
+import Header from './Header.jsx';
+import Footer from './footer.jsx';
+import LoginForm from './login.jsx';
 import { Link } from 'react-router-dom';
 
 import 'owl.carousel/dist/assets/owl.carousel.css';

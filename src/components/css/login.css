@@ -89,9 +89,10 @@
         margin-right: 50px;
     }
     .loginImage{
-        width:100% !important;
+        max-width: 650px;
+        width: 600px !important;
         height: auto !important;
-        margin:0;
+        margin: 0;
     }
     .logindetails{
         display: flex;

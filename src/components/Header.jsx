@@ -61,6 +61,9 @@ function Header({ onLogout, toggleTheme   }){
                                     <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : 'text-dark HeaderNavItem'}`}>About</Link>
                                 </li>
                                 <li className='nav-item'>
+                                    <Link to="/portfolio" className={`nav-link ${location.pathname === '/portfolio' ? 'active' : 'text-dark HeaderNavItem'}`}>Portfolio</Link>
+                                </li>
+                                <li className='nav-item'>
                                     <Link to="/contact" className={`nav-link  ${location.pathname === '/contact' ? 'active' : 'text-dark HeaderNavItem'}`} >Contact</Link>
                                 </li>
                                 <li className='nav-item'>
@@ -70,9 +73,10 @@ function Header({ onLogout, toggleTheme   }){
                             </ul>
                         </div>
                     </div>
-                    <div className="form-check form-switch d-none d-xl-block">
+                    {/* <div className="form-check form-switch d-none d-xl-block">
                         <input className="form-check-input theme-toggle-btn" type="checkbox" role="switch"  onClick={toggleTheme}/>
-                    </div>
+                    </div> */}
+                
                     <div className='headerIconsCont'>
                         <div className='profileIconCont' tabIndex="0">
                             <div className="dropdown">
