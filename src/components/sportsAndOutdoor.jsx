@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import "./css/womansFash.css";
 
-import Header from './Header';
+import Header from './header';
 import Footer from './footer';
 import LoginForm from './login';
 

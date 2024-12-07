@@ -6,7 +6,7 @@ import "./css/womansFash.css";
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProduct, addToCart, productDetail  } from '../redux/action/action';
-import Header from './Header';
+import Header from './header';
 import Footer from './footer';
 import LoginForm from './login';
 

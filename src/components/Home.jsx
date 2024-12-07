@@ -6,7 +6,7 @@ import "./css/home.css";
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProduct, addToCart, productDetail  } from '../redux/action/action';
-import Header from './Header';
+import Header from './header';
 import Footer from './footer';
 import LoginForm from './login';
 
@@ -16,7 +16,7 @@ import BannerImg1 from "./images/Home/Frame 600.png"
 import aboutLastContImg1 from './images/about/S1.png';
 import aboutLastContImg2 from './images/about/S2.png';
 import aboutLastContImg3 from './images/about/S3.png';
-import FlashSaleCountdown from './FlashSaleCountdown';
+import FlashSaleCountdown from './flashSaleCountdown';
 import SideNavBar from './sideNavBar';
 
 

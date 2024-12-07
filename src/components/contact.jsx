@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Header from './Header';
+import Header from './header';
 import Footer from "./footer"
 import './css/contact.css';
 import { firestore, collection, addDoc } from './fireBase';

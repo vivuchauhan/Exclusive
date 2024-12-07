@@ -3,7 +3,7 @@ import "./css/product.css";
 import "./css/home.css";
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromWishlist, addToCart, productDetail } from '../redux/action/action.js';
-import Header from './Header.jsx';
+import Header from './header.jsx';
 import Footer from './footer.jsx';
 import LoginForm from './login.jsx';
 import { Link } from 'react-router-dom';

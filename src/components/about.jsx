@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+import Header from './header';
 import './css/about.css';
 import Footer from "./footer"; 
 import aboutImage1 from './images/about/Side Image.png';

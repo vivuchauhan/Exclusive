@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import "./css/cart.css";
-import Header from './Header';
+import Header from './header';
 import Footer from "./footer";
 import LoginForm from './login';
 

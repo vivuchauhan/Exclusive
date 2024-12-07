@@ -4,9 +4,8 @@ import "./css/login.css";
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup, onAuthStateChanged  } from 'firebase/auth';
-import Header from './Header';
+import Header from './header';
 import Footer from './footer';
-import imgUrl from './images/login/login-img.jpg';
 
 // Initialize Firebase 
 const firebaseConfig = {
@@ -148,6 +147,10 @@ function LoginForm({ onLogin }) {
     }
   };
 
+
+
+  
+  const imgUrl = "https://iglebestg.ebizontech.biz/images/login/login8464.png";
 
   return (
     <>

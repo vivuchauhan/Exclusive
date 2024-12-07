@@ -3,7 +3,7 @@ import "./css/product.css";
 import {useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {  addToCart, productDetail, addToWishlist } from '../redux/action/action';
-import Header from './Header';
+import Header from './header';
 import Footer from './footer';
 
 import 'owl.carousel/dist/assets/owl.carousel.css';

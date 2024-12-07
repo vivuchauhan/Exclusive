@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./css/cart.css";
-import Header from './Header';
+import Header from './header';
 import Footer from "./footer";
 import LoginForm from './login';
 

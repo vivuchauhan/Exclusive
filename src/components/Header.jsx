@@ -76,7 +76,6 @@ function Header({ onLogout, toggleTheme   }){
                     {/* <div className="form-check form-switch d-none d-xl-block">
                         <input className="form-check-input theme-toggle-btn" type="checkbox" role="switch"  onClick={toggleTheme}/>
                     </div> */}
-                
                     <div className='headerIconsCont'>
                         <div className='profileIconCont' tabIndex="0">
                             <div className="dropdown">

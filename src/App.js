@@ -1,14 +1,14 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './components/Home';
+import Home from './components/home';
 import Cart from './components/cart';
 import About from "./components/about";
 import Contact from "./components/contact";
 import Blog from "./components/blog";
 import ProductDetail from './components/productDetail';
-import Signup from './components/Signup';
-import Wishlist from './components/Wishlist';
-import WomansFashion from './components/WomansFashion';
+import Signup from './components/signup';
+import Wishlist from './components/wishlist-products';
+import WomansFashion from './components/womans-fashion';
 import MensFashion from './components/mensFashion';
 import Jewelery from './components/jewelery';
 import Electronics from './components/electronics';
@@ -51,7 +51,6 @@ function App() {
           <Route path="/bestSelling" element={<BestSelling />} />
           <Route path="/cancellation" element={<Cancellation />} />
           <Route path="/portfolio" element={<Portfolio />} />
-
         </Routes>
       </BrowserRouter>
     </>
