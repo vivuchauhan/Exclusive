@@ -16,8 +16,6 @@
 .navbar{
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
     background-color: #ecf5ffa6 !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-    backdrop-filter: blur(10px) !important;
 }
 .navbar-toggler:focus {
     box-shadow: none;
