@@ -190,10 +190,10 @@ function LoginForm({ onLogin }) {
                     </>
                     ) : (
                       <>
-                        <p className='logindetails' style={{fontWeight:"400", fontSize:"13px"}}><span className='me-1' style={{fontWeight:"600", fontSize:"14px"}}>ID:</span> ritik@gmail.com <span className='ms-3 me-1' style={{fontWeight:"600",fontSize:"14px"}}>Password:</span> Ritik@123</p>
+                        {/* <p className='logindetails' style={{fontWeight:"400", fontSize:"13px"}}><span className='me-1' style={{fontWeight:"600", fontSize:"14px"}}>ID:</span> ritik@gmail.com <span className='ms-3 me-1' style={{fontWeight:"600",fontSize:"14px"}}>Password:</span> Ritik@123</p> */}
                         <div className='loginInputField'>
                           <div>
-                            <label className='mt-4 ' type="text">Email</label><br/>
+                            <label className='mt-3 ' type="text">Email</label><br/>
                             <input className='p-1' type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} style={{width:"300px", background:"#ecf1fe", border:"1px solid #ced4da"}}/>
                             {emailError && <p className="text-danger m-0" style={{fontSize:"12px"}}>{emailError}</p>}
                           </div>
