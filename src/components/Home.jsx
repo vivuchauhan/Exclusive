@@ -25,6 +25,7 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import OwlCarousel from 'react-owl-carousel';
 
 
+
 const clampStyle = {
   display: '-webkit-box',
   WebkitBoxOrient: 'vertical',
@@ -56,6 +57,17 @@ function Home() {
   );
 
   const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(() => {
+    document.querySelectorAll(".owl-carousel").forEach((el) => {
+      el.addEventListener(
+        "touchstart",
+        (event) => {},
+        { passive: true }
+      );
+    });
+  }, []);
+  
 
   useEffect(() => {
     dispatch(fetchProduct());
@@ -128,70 +140,123 @@ function Home() {
                 <div className='col-md-3 col-12 d-none d-lg-block' style={{borderRight:"1px solid #D6D5D5"}}>
                  <SideNavBar/>
                 </div>
-                <div id="carouselExampleAutoplaying" className="carousel col-md-8 col-12 slide pt-lg-4 p-0" data-bs-ride="carousel" >
-                  <div className="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  </div>
-                  <div className="carousel-inner">
-                    <div className="carousel-item active">
-                      <img src={CaroselImg1} className="d-block w-100" alt="..."/>
+                <div className="col-md-9 col-12 pt-lg-4 ps-lg-4 mt-3 mt-lg-0">
+                  <OwlCarousel
+                    className="owl-theme"
+                    loop
+                    margin={10}
+                    // nav
+                    autoplay
+                    autoplayTimeout={3000}
+                    dots
+                    items={1}
+                    navText={[
+                      "<span class='carousel-control-prev-icon'></span>",
+                      "<span class='carousel-control-next-icon'></span>",
+                    ]}
+                  >
+                    {/* Slide 1 */}
+                    <div className="item">
+                      <img src={CaroselImg1} className="d-block w-100" alt="..." />
                       <div className="carousel-caption">
-                        <h5><span><img src={CaroselImg2} className='me-2 mb-2 text-start' /></span>iPhone 14 Series <br/>Up to 10% off Voucher</h5>
-                        <a href='' className='text-white'>
+                        <h5>
+                          <span>
+                            <img src={CaroselImg2} className="me-2 mb-2 text-start" alt="icon" />
+                          </span>
+                          iPhone 14 Series <br />
+                          Up to 10% off Voucher
+                        </h5>
+                        <a href="" className="text-white">
                           Shop Now
-                          <span className='ms-2'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">
-                              <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                          <span className="ms-2">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="26"
+                              height="26"
+                              fill="currentColor"
+                              className="bi bi-arrow-right"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                              />
                             </svg>
                           </span>
                         </a>
                       </div>
                     </div>
-                    <div className="carousel-item">
-                      <img src={CaroselImg1} className="d-block w-100" alt="..."/>
-                      <div className="carousel-caption d-none d-md-block ">
-                        <h5 ><span><img src={CaroselImg2} className='me-2 mb-2 text-start' /></span>iPhone 14 Series <br/>Up to 10% off Voucher</h5>
-                        <a href='' className='text-white' >
+
+                    {/* Slide 2 */}
+                    <div className="item">
+                      <img src={CaroselImg1} className="d-block w-100" alt="..." />
+                      <div className="carousel-caption d-none d-md-block">
+                        <h5>
+                          <span>
+                            <img src={CaroselImg2} className="me-2 mb-2 text-start" alt="icon" />
+                          </span>
+                          iPhone 14 Series <br />
+                          Up to 10% off Voucher
+                        </h5>
+                        <a href="" className="text-white">
                           Shop Now
-                          <span className='ms-2'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">
-                              <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                          <span className="ms-2">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="26"
+                              height="26"
+                              fill="currentColor"
+                              className="bi bi-arrow-right"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                              />
                             </svg>
                           </span>
                         </a>
                       </div>
                     </div>
-                    <div className="carousel-item">
-                      <img src={CaroselImg1} className="d-block w-100" alt="..."/>
-                      <div className="carousel-caption d-none d-md-block ">
-                        <h5><span><img src={CaroselImg2} className='me-2 mb-2 text-start' /></span>iPhone 14 Series <br/>Up to 10% off Voucher</h5>
-                        <a href='' className='text-white' >
+
+                    {/* Slide 3 */}
+                    <div className="item">
+                      <img src={CaroselImg1} className="d-block w-100" alt="..." />
+                      <div className="carousel-caption d-none d-md-block">
+                        <h5>
+                          <span>
+                            <img src={CaroselImg2} className="me-2 mb-2 text-start" alt="icon" />
+                          </span>
+                          iPhone 14 Series <br />
+                          Up to 10% off Voucher
+                        </h5>
+                        <a href="" className="text-white">
                           Shop Now
-                          <span className='ms-2'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">
-                              <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                          <span className="ms-2">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="26"
+                              height="26"
+                              fill="currentColor"
+                              className="bi bi-arrow-right"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                              />
                             </svg>
                           </span>
                         </a>
                       </div>
                     </div>
-                  </div>
-                  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                  </button>
-                  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                  </button>
+                  </OwlCarousel>
                 </div>
               </div>
             </div>
           </div>
           {/* flash sale content */}
-          <div className="container-fluid pt-lg-5 p-0">
+          <div className="container-fluid pt-lg-2 p-0">
             <div className='container'>
               <div className='row'>
                 <div className='searchCont'>
@@ -203,10 +268,10 @@ function Home() {
                         placeholder="What are you looking for?"
                         value={searchInput}
                         onChange={handleSearchInputChange}
-                        className='w-100 bg-transparent'
+                        className='w-100 bg-transparent form-control'
                         style={{border:"none", boxShadow:"none"}}
                       />
-                      <div>
+                      <div className="d-flex justify-content-center align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
                           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
                         </svg>
