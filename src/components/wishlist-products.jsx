@@ -43,6 +43,7 @@ function Wishlist() {
   const [localWishlist, setLocalWishlist] = useState(wishlist);
 
   const products = useSelector((state) => state.product.product);
+
   const totalQuantity = localWishlist.length;
   const handleRemoveFromWishlist = (productId) => {
     dispatch(removeFromWishlist(productId));
@@ -60,6 +61,7 @@ function Wishlist() {
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase()
   );
+  console.log("filteredProducts", filteredProducts)
   const handleProductDetail = (productDetails) => {
     dispatch(productDetail(productDetails));
   };
@@ -120,7 +122,7 @@ function Wishlist() {
                     {wishlist && wishlist.map((item) => (
                       <div className='item CardStyle my-lg-4 mb-4 wishlistIconCont'  key={item.id}>
                         <div style={{overflow:"hidden"}}>
-                          <img className='HomeCardImg' src={item.image} alt={item.title} />
+                          <img className='HomeCardImg' src={item.thumbnail} alt={item.title} />
                         </div>
                         <div className="mt-2">
                           <p className="text-center p-0 m-0 " style={clampStyle}>
@@ -133,7 +135,7 @@ function Wishlist() {
                             Price: <span className="text-success"> ₹{item.price}</span>
                           </p>
                           <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
-                            Rating: <span style={{color:"#fc530a"}}>{item.rating.rate}</span>
+                            Rating: <span style={{color:"#fc530a"}}>{item.rating}</span>
                           </p>
                         </div>
                         <div className="text-center ">
@@ -184,7 +186,7 @@ function Wishlist() {
                         <div className='item CardStyle my-4'  key={item.id}>
                           <Link to="/productDetail" onClick={() => handleProductDetail(item)}>
                             <div className='text-center ps-2'>
-                              <img className='HomeCardImg' src={item.image} style={{ width: '140px', height: '120px', cursor: 'pointer' }} alt={item.title} />
+                              <img className='HomeCardImg' src={item.thumbnail} style={{ width: '140px', height: '120px', cursor: 'pointer' }} alt={item.title} />
                             </div>
                           </Link>
                           <div className="mt-2">
@@ -198,7 +200,7 @@ function Wishlist() {
                               Price: <span className="text-success"> ₹{item.price}</span>
                             </p>
                             <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
-                              Rating: <span style={{color:"#fc530a"}}>{item.rating.rate}</span>
+                              Rating: <span style={{color:"#fc530a"}}>{item.rating}</span>
                             </p>
                           </div>
                           <div className="text-center ">

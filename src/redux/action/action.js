@@ -1,10 +1,11 @@
 export const fetchProduct = () => async(dispatch) => {
       try {
-        const response = await fetch('https://fakestoreapi.com/products');
+        const response = await fetch('https://dummyjson.com/products?limit=300');
         const product = await response.json();
+        console.log("all data", product)
         dispatch({
           type: 'FETCH_PRODUCT',
-          payload: product,
+          payload: product.products,
         })
       } catch (error) {
         console.error('Fetch API error:', error);

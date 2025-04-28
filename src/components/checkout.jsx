@@ -224,7 +224,7 @@ function Checkout() {
                   {cart.map((item) => (
                       <div className='my-lg-2 py-2 px-3' key={item.id}  style={{ background:"rgb(230, 225, 225)", borderRadius:"5px"}}>
                           <div  style={{ width:'100%',display:"flex"}}>
-                              <img src={item.image} style={{ width: '35px', height: '35px' }} alt={item.title} />
+                              <img src={item.thumbnail} style={{ width: '35px', height: '35px' }} alt={item.title} />
                               <p className=' p-0 ps-3 m-0' style={{ fontSize: '12px', fontWeight: '600', width:"70%"}}>
                               {item.title}
                               </p>

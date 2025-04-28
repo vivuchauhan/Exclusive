@@ -10,9 +10,11 @@ import Header from './header';
 import Footer from './footer';
 import LoginForm from './login';
 
-import CaroselImg1 from './images/carosel/Frame 560 (1).png';
-import CaroselImg2 from './images/carosel/AppleImg.png';
-import BannerImg1 from "./images/Home/Frame 600.png"
+import CaroselImg1 from './images/carosel/banner1.png';
+import CaroselImg2 from './images/carosel/banner2.png';
+import CaroselImg3 from './images/carosel/banner3.png';
+import CaroselImg4 from './images/carosel/banner4.png';
+import BannerImg1 from "./images/Home/banner-middle.png"
 import aboutLastContImg1 from './images/about/S1.png';
 import aboutLastContImg2 from './images/about/S2.png';
 import aboutLastContImg3 from './images/about/S3.png';
@@ -80,9 +82,8 @@ function Home() {
   const handleProductDetail = (productDetails) => {
     dispatch(productDetail(productDetails));
   };
-
-  const bestSellingProducts = products.filter((item) => item.rating.rate >= 4.5);
-  const FlashSale = products.filter((item) => item.rating.rate <= 3);
+  const bestSellingProducts = products.filter((item) => item.rating >= 4.5);
+  const FlashSale = products.filter((item) => item.rating <= 3);
 
   const handleLogin = () => {
     setIsLoggedIn(true);
@@ -158,97 +159,20 @@ function Home() {
                     {/* Slide 1 */}
                     <div className="item">
                       <img src={CaroselImg1} className="d-block w-100" alt="..." />
-                      <div className="carousel-caption">
-                        <h5>
-                          <span>
-                            <img src={CaroselImg2} className="me-2 mb-2 text-start" alt="icon" />
-                          </span>
-                          iPhone 14 Series <br />
-                          Up to 10% off Voucher
-                        </h5>
-                        <a href="" className="text-white">
-                          Shop Now
-                          <span className="ms-2">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="26"
-                              height="26"
-                              fill="currentColor"
-                              className="bi bi-arrow-right"
-                              viewBox="0 0 16 16"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </div>
                     </div>
 
                     {/* Slide 2 */}
                     <div className="item">
-                      <img src={CaroselImg1} className="d-block w-100" alt="..." />
-                      <div className="carousel-caption d-none d-md-block">
-                        <h5>
-                          <span>
-                            <img src={CaroselImg2} className="me-2 mb-2 text-start" alt="icon" />
-                          </span>
-                          iPhone 14 Series <br />
-                          Up to 10% off Voucher
-                        </h5>
-                        <a href="" className="text-white">
-                          Shop Now
-                          <span className="ms-2">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="26"
-                              height="26"
-                              fill="currentColor"
-                              className="bi bi-arrow-right"
-                              viewBox="0 0 16 16"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </div>
+                      <img src={CaroselImg2} className="d-block w-100" alt="..." />
                     </div>
 
                     {/* Slide 3 */}
                     <div className="item">
-                      <img src={CaroselImg1} className="d-block w-100" alt="..." />
-                      <div className="carousel-caption d-none d-md-block">
-                        <h5>
-                          <span>
-                            <img src={CaroselImg2} className="me-2 mb-2 text-start" alt="icon" />
-                          </span>
-                          iPhone 14 Series <br />
-                          Up to 10% off Voucher
-                        </h5>
-                        <a href="" className="text-white">
-                          Shop Now
-                          <span className="ms-2">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="26"
-                              height="26"
-                              fill="currentColor"
-                              className="bi bi-arrow-right"
-                              viewBox="0 0 16 16"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
-                              />
-                            </svg>
-                          </span>
-                        </a>
-                      </div>
+                      <img src={CaroselImg3} className="d-block w-100" alt="..." />
+                    </div>
+                    {/* Slide 4 */}
+                    <div className="item">
+                      <img src={CaroselImg4} className="d-block w-100" alt="..." />
                     </div>
                   </OwlCarousel>
                 </div>
@@ -325,7 +249,7 @@ function Home() {
                       <div className='item CardStyle my-lg-4 mb-4 wishlistIconCont'  key={item.id}>
                         <Link className='' to="/productDetail" onClick={() => handleProductDetail(item)} style={{overflow:"hidden"}}>
                           <div style={{overflow:"hidden"}}>
-                            <img className='HomeCardImg' src={item.image} alt={item.title} />
+                            <img className='HomeCardImg' src={item.thumbnail} alt={item.title} />
                           </div>
                         </Link>
                         <div className="mt-2">
@@ -339,7 +263,7 @@ function Home() {
                             Price: <span className="text-success"> ₹{item.price}</span>
                           </p>
                           <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
-                            Rating: <span style={{color:"#fc530a"}}>{item.rating.rate}</span>
+                            Rating: <span style={{color:"#fc530a"}}>{item.rating}</span>
                           </p>
                         </div>
                         <div className="text-center ">
@@ -391,7 +315,7 @@ function Home() {
                         <div className='item CardStyle my-4'  key={item.id}>
                           <Link to="/productDetail" onClick={() => handleProductDetail(item)}>
                             <div className='text-center ps-2'>
-                              <img className='HomeCardImg' src={item.image} style={{ width: '140px', height: '120px', cursor: 'pointer' }} alt={item.title} />
+                              <img className='HomeCardImg' src={item.thumbnail} style={{ width: '140px', height: '120px', cursor: 'pointer' }} alt={item.title} />
                             </div>
                           </Link>
                           <div className="mt-2">
@@ -405,7 +329,7 @@ function Home() {
                               Price: <span className="text-success"> ₹{item.price}</span>
                             </p>
                             <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
-                              Rating: <span style={{color:"#fc530a"}}>{item.rating.rate}</span>
+                              Rating: <span style={{color:"#fc530a"}}>{item.rating}</span>
                             </p>
                           </div>
                           <div className="text-center ">
@@ -462,7 +386,7 @@ function Home() {
                         <div className='item CardStyle my-4'  key={item.id}>
                           <Link to="/productDetail" onClick={() => handleProductDetail(item)}>
                             <div className='text-center ps-2'>
-                              <img className='HomeCardImg' src={item.image} style={{ width: '140px', height: '120px', cursor: 'pointer' }} alt={item.title} />
+                              <img className='HomeCardImg' src={item.thumbnail} style={{ width: '140px', height: '120px', cursor: 'pointer' }} alt={item.title} />
                             </div>
                           </Link>
                           <div className="mt-2">
@@ -476,7 +400,7 @@ function Home() {
                               Price: <span className="text-success"> ₹{item.price}</span>
                             </p>
                             <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
-                              Rating: <span style={{color:"#fc530a"}}>{item.rating.rate}</span>
+                              Rating: <span style={{color:"#fc530a"}}>{item.rating}</span>
                             </p>
                           </div>
                           <div className="text-center ">

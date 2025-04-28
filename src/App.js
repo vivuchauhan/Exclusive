@@ -22,6 +22,7 @@ import Orders from './components/orders';
 import BestSelling from './components/bestSelling';
 import Cancellation from './components/cancellationOrder';
 import { Portfolio } from './components/portfolio';
+import Vehicle from './components/vehicle';
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
           <Route path="/bestSelling" element={<BestSelling />} />
           <Route path="/cancellation" element={<Cancellation />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/vehicle" element={<Vehicle />} />
         </Routes>
       </BrowserRouter>
     </>

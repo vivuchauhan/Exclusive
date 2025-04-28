@@ -1,4 +1,5 @@
 
+
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -35,30 +36,35 @@ const CategoryclampStyle = {
 
 
 
-function MensFashion() {
+function Vehicle() {
 
     const dispatch = useDispatch();
     const products = useSelector((state) => state.product.product);
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 6;
-    console.log("mensFashion Component", products)
+    console.log("homeLifestyle Component", products)
 
-    const mensFashionCategories = [
-      "mens-shirts",
-      "mens-shoes",
-      "mens-watches",
-      "sunglasses",
+    const homeLifestyleCategories = [
+      "motorcycle",
+      "vehicle",
     ];
-    const mensFashionClothes = products.filter((item) =>
-      mensFashionCategories.includes(item.category)
+
+    const homeLifestyle = products.filter((item) =>
+      homeLifestyleCategories.includes(item.category)
     );
 
-    const totalPages = Math.ceil(mensFashionClothes.length / productsPerPage);
+    const totalPages = Math.ceil(homeLifestyle.length / productsPerPage);
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    const paginatedProducts = mensFashionClothes.slice(indexOfFirstProduct, indexOfLastProduct);
+    const paginatedProducts = homeLifestyle.slice(indexOfFirstProduct, indexOfLastProduct);
   
-
+    const handlePageChange = (page) => {
+      if (page >= 1 && page <= totalPages) {
+        setCurrentPage(page);
+        window.scrollTo(0, 0);
+      }
+    };
+    
 
     useEffect(() => {
         dispatch(fetchProduct());
@@ -94,12 +100,7 @@ function MensFashion() {
         document.body.classList.remove(currentTheme);
         document.body.classList.add(currentTheme === 'theme-light' ? 'theme-dark' : 'theme-light');
     };
-    const handlePageChange = (page) => {
-      if (page >= 1 && page <= totalPages) {
-        setCurrentPage(page);
-        window.scrollTo(0, 0);
-      }
-    };
+
 
   return (
     <div>
@@ -114,7 +115,7 @@ function MensFashion() {
                 </div>
                 <div className="col-md-8 col-12 pt-lg-4 p-0">
                   <div className='row justify-content-center'>
-                    <h4 className='text-center'>Men's collections</h4>
+                  <h4 className='text-center'>Home & Lifestyle collection's</h4>
                     {paginatedProducts.map((item) => (
                       <div className='col-md-4 col-sm-6 col-12 mb-4 WomansCardStyle' key={item.id}>
                         <Link to="/productDetail" onClick={() => handleProductDetail(item)} style={{ overflow: "hidden", textDecoration: "none" }}>
@@ -142,8 +143,8 @@ function MensFashion() {
                       </div>
                     ))}
                   </div>
-                   {/* Pagination Controls */}
-                   <div className="d-flex justify-content-center align-items-center gap-2 my-4">
+                  {/* Pagination Controls */}
+                  <div className="d-flex justify-content-center align-items-center gap-2 my-4">
                     <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className="btn btn-secondary">Prev</button>
                     {[...Array(totalPages)].map((_, index) => (
                       <button key={index + 1}
@@ -167,4 +168,4 @@ function MensFashion() {
   );
 }
 
-export default MensFashion;
+export default Vehicle;

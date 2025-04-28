@@ -92,7 +92,7 @@ function Cart() {
                     >
                       <div  style={{ width: '10%'}}>
                         <img
-                          src={item.image}
+                          src={item.thumbnail}
                           style={{ width: '100%', height: 'auto' }}
                           alt={item.title}
                         />
@@ -109,7 +109,7 @@ function Cart() {
                             className='homeCardText ps-3 pb-2 mt-2'
                             style={{ fontSize: '14px', fontWeight: '500' }}
                           >
-                            Rating: <span style={{color:"#fc530a"}}>{item.rating.rate}</span>
+                            Rating: <span style={{color:"#fc530a"}}>{item.rating}</span>
                           </p>
                         </div>
                         <div style={{display:"flex", flexDirection:"column", width:"50%"}}>

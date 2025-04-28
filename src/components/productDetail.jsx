@@ -111,11 +111,11 @@ function ProductDetail() {
             <div className="container-fluid pb-5">
                 <div className='container'>
                     <div className='row ProductDetailCardStyle col-12 py-5 pb-5' key={currentItem.id}>
-                        <div className='col-md-6 d-flex justify-content-center' style={{background:"#F5F5F5", alignItems:"center"}}><img src={currentItem.image} style={{  }}  className='py-5 productDetailImg'/></div>
+                        <div className='col-md-6 d-flex justify-content-center' style={{background:"#F5F5F5", alignItems:"center"}}><img src={currentItem.thumbnail} style={{  }}  className='py-5 productDetailImg'/></div>
                         <div className='col-md-6 ps-lg-5  '>
                             <div className=''>
                                 <p className=' p-1 m-0' style={{ fontSize: "20px", fontWeight: "600" }}> {currentItem.title}</p>
-                                <p className=' pb-2 p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Rating:<span style={{color:"#fc530a", fontWeight:"600"}}> {currentItem.rating.rate} </span></p>
+                                <p className=' pb-2 p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Rating:<span style={{color:"#fc530a", fontWeight:"600"}}> {currentItem.rating} </span></p>
                                 <p className=' p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Price: <span className='text-success'>₹{currentItem.price}</span></p>
                                 <p className=' p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Category: <span style={{color:"#908e91"}}>{currentItem.category}</span></p>
                                 <p className=' p-1 m-0' style={DiscriptionStyle}><span style={{ fontSize: "15px", fontWeight: "600" }}>Description:</span> {currentItem.description}</p>
@@ -193,7 +193,7 @@ function ProductDetail() {
                                     <div className='item CardStyle my-4'  key={item.id}>
                                     <Link to="/productDetail" onClick={() => handleProductDetail(item)}>
                                         <div className='text-center ps-2'>
-                                        <img className='HomeCardImg' src={item.image} style={{ width: '140px', height: '120px', cursor: 'pointer' }} alt={item.title} />
+                                        <img className='HomeCardImg' src={item.thumbnail} style={{ width: '140px', height: '120px', cursor: 'pointer' }} alt={item.title} />
                                         </div>
                                     </Link>
                                     <div className="mt-2">
@@ -207,7 +207,7 @@ function ProductDetail() {
                                         Price: <span className="text-success"> ₹{item.price}</span>
                                         </p>
                                         <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
-                                        Rating: <span style={{color:"#fc530a"}}>{item.rating.rate}</span>
+                                        Rating: <span style={{color:"#fc530a"}}>{item.rating}</span>
                                         </p>
                                     </div>
                                     <div className="text-center ">
