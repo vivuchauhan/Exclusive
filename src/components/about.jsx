@@ -1,7 +1,5 @@
-import React from 'react';
-import Header from './header';
-import './css/about.css';
-import Footer from "./footer"; 
+
+import './css/about.css'; 
 import aboutImage1 from './images/about/Side Image.png';
 import aboutImage3 from './images/about/Frame 874.png';
 import aboutImage4 from './images/about/Frame 875.png';
@@ -31,20 +29,10 @@ function About () {
     height:"auto"
   };
 
-  const toggleTheme = () => {
-    const currentTheme = document.body.classList.contains('theme-light')
-      ? 'theme-light'
-      : 'theme-dark';
-
-    document.body.classList.remove(currentTheme);
-    document.body.classList.add(currentTheme === 'theme-light' ? 'theme-dark' : 'theme-light');
-  };
-
   
 
   return (
       <>
-        <Header toggleTheme={toggleTheme}/>
         <div className='container-fluid'>
           <div className="container pt-lg-5 pt-3">
             <section style={sectionStyle}>
@@ -126,7 +114,6 @@ function About () {
             </section>
           </div>
         </div>
-        <Footer/>
       </>
   );
 };

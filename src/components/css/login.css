@@ -15,6 +15,32 @@
     align-items: center;
 }
 
+.user-profile{
+   background-color: #1b0404;
+   border-radius: 15px;
+   padding: 10px;
+   color: #fff;
+   display: flex;
+}
+.user-profile .circle{
+    background-color: #fff;
+    border-radius: 50%;
+    width:50px;
+    height: 50px;
+    color: #000;
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+.user-profile .box{
+  
+}
+
+
+
 @media only screen and (min-width: 320px) and (max-width: 425px) {
     .loginCont{
         margin:0;

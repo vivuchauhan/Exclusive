@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Header from './header';
-import Footer from "./footer"
 import './css/contact.css';
-import { firestore, collection, addDoc } from './fireBase';
+import { db } from "./firebase";
+import { collection, addDoc } from "firebase/firestore";
+
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -19,8 +19,7 @@ function Contact() {
     message: '',
   });
 
-  const contactUsImg =
-    'https://media.istockphoto.com/id/1365544413/video/contact-us-concept.jpg?s=640x640&k=20&c=a6o5RVk_pVTjL_YXzFQYSa76PahdhH7OLCLdv3iel_I=';
+  const contactUsImg ='https://media.istockphoto.com/id/1365544413/video/contact-us-concept.jpg?s=640x640&k=20&c=a6o5RVk_pVTjL_YXzFQYSa76PahdhH7OLCLdv3iel_I=';
 
   const validatePhoneNumber = (phoneNumber) => {
     const regex = /^\d{10}$/; 
@@ -48,29 +47,30 @@ function Contact() {
       return;
     }
   
-    try {
-      const contactsCollection = collection(firestore, 'contacts');
+   try {
+      const contactsCollection = collection(db, "contacts"); //use db
       await addDoc(contactsCollection, {
         name,
         phone,
         email,
         message,
+        createdAt: new Date(), // optional but good for ordering
       });
-  
-      console.log('Contact details submitted successfully!');
-      alert('Contact details submitted successfully!');
-  
-      // Clear form fields
+
+      console.log("Contact details submitted successfully!");
+      alert("Contact details submitted successfully!");
+
       setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        message: '',
+        name: "",
+        phone: "",
+        email: "",
+        message: "",
       });
     } catch (error) {
-      console.error('Error submitting contact details:', error);
-      alert('Error submitting contact details' + error.message);
+      console.error("Error submitting contact details:", error);
+      alert("Error submitting contact details: " + error.message);
     }
+
   };
   
   const handleChange = (e) => {
@@ -85,20 +85,10 @@ function Contact() {
     });
   };
 
-  const toggleTheme = () => {
-    const currentTheme = document.body.classList.contains('theme-light')
-      ? 'theme-light'
-      : 'theme-dark';
-
-    document.body.classList.remove(currentTheme);
-    document.body.classList.add(currentTheme === 'theme-light' ? 'theme-dark' : 'theme-light');
-  };
-
   
 
   return (
       <>
-        <Header toggleTheme={toggleTheme}/>
         <div className='container-fluid ps-0 pe-0'>
           <div className='container pt-5 d-lg-flex'>
             <div className='col-lg-4 col-12 pe-5'>
@@ -192,7 +182,6 @@ function Contact() {
             </div>
           </div>
         </div>
-        <Footer />
       </>
   );
 }

@@ -6,9 +6,6 @@ import "./css/home.css";
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProduct, addToCart, productDetail  } from '../redux/action/action';
-import Header from './header';
-import Footer from './footer';
-import LoginForm from './login';
 
 import CaroselImg1 from './images/carosel/banner1.png';
 import CaroselImg2 from './images/carosel/banner2.png';
@@ -54,9 +51,6 @@ function Home() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.product);
   const [searchInput, setSearchInput] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem('isLoggedIn') === 'true'
-  );
 
   const [searchResults, setSearchResults] = useState([]);
 
@@ -85,24 +79,7 @@ function Home() {
   const bestSellingProducts = products.filter((item) => item.rating >= 4.5);
   const FlashSale = products.filter((item) => item.rating <= 3);
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-    localStorage.setItem('isLoggedIn', 'true');
-  };
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    localStorage.removeItem('isLoggedIn');
-  };
-
-  const toggleTheme = () => {
-    const currentTheme = document.body.classList.contains('theme-light')
-      ? 'theme-light'
-      : 'theme-dark';
-
-    document.body.classList.remove(currentTheme);
-    document.body.classList.add(currentTheme === 'theme-light' ? 'theme-dark' : 'theme-light');
-  };
 
   const handleSearchInputChange = (e) => {
     const inputValue = e.target.value;
@@ -130,10 +107,7 @@ function Home() {
   };
 
   return (
-    <div>
-      {isLoggedIn ? (
         <>
-          <Header onLogout={handleLogout} toggleTheme={toggleTheme}/>
           {/* carosel content */}
           <div className='d-md-flex container-fluid p-0'>
             <div className='container p-0'>
@@ -143,13 +117,13 @@ function Home() {
                 </div>
                 <div className="col-md-9 col-12 pt-lg-4 ps-lg-4 mt-3 mt-lg-0">
                   <OwlCarousel
-                    className="owl-theme"
+                    className="owl-theme maincarosel"
                     loop
                     margin={10}
-                    // nav
                     autoplay
                     autoplayTimeout={3000}
                     dots
+                    nav
                     items={1}
                     navText={[
                       "<span class='carousel-control-prev-icon'></span>",
@@ -439,14 +413,11 @@ function Home() {
               </div>
             </div>
           </div>
-          <Footer/>
         </>
-      ) : (
-        <LoginForm onLogin={handleLogin} />
-      )}
-    </div>
   );
 }
 
 
 export default Home;
+
+

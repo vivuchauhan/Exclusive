@@ -2,9 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./css/cart.css";
-import Header from './header';
-import Footer from "./footer";
-import LoginForm from './login';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, updateQuantity  } from '../redux/action/action';
@@ -12,19 +9,6 @@ import { removeFromCart, updateQuantity  } from '../redux/action/action';
 function Cart() {
   const [totalAmount, setTotalAmount] = useState(0);
   const [discount, setDiscount] = useState(0);
-
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem('isLoggedIn') === 'true'
-  );
-
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-    localStorage.setItem('isLoggedIn', 'true');
-  };
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    localStorage.removeItem('isLoggedIn');
-  };
 
   const cart = useSelector((state) => state.product.cart);
   const dispatch = useDispatch();
@@ -65,20 +49,8 @@ function Cart() {
   };
   
 
-  const toggleTheme = () => {
-    const currentTheme = document.body.classList.contains('theme-light')
-      ? 'theme-light'
-      : 'theme-dark';
-
-    document.body.classList.remove(currentTheme);
-    document.body.classList.add(currentTheme === 'theme-light' ? 'theme-dark' : 'theme-light');
-  };
-
   return (
-    <div>
-    {isLoggedIn ? (
       <>
-        <Header onLogout={handleLogout} toggleTheme={toggleTheme}/>
         <div className='container-fluid'>
           <div className='container cartContainer'>
             <div className='row my-3 me-auto cartLeftCont'>
@@ -195,12 +167,7 @@ function Cart() {
             </div>
           </div>
         </div>
-        <Footer/>
       </>
-      ) : (
-        <LoginForm onLogin={handleLogin} />
-      )}
-    </div>
   );
 }
 

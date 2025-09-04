@@ -3,8 +3,6 @@ import "./css/product.css";
 import {useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {  addToCart, productDetail, addToWishlist } from '../redux/action/action';
-import Header from './header';
-import Footer from './footer';
 
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
@@ -61,7 +59,6 @@ function ProductDetail() {
     if (!product || product.length === 0) {
         return (
             <>
-                <Header />
                 <div className="container-fluid">
                     <h1 className='text-center my-5'>No Product Available</h1>
                 </div>
@@ -70,14 +67,6 @@ function ProductDetail() {
     }
     const currentItem = product[product.length - 1];
 
-    const toggleTheme = () => {
-        const currentTheme = document.body.classList.contains('theme-light')
-          ? 'theme-light'
-          : 'theme-dark';
-    
-        document.body.classList.remove(currentTheme);
-        document.body.classList.add(currentTheme === 'theme-light' ? 'theme-dark' : 'theme-light');
-    };
 
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
@@ -107,11 +96,10 @@ function ProductDetail() {
 
     return (
         <>
-            <Header toggleTheme={toggleTheme}/>
             <div className="container-fluid pb-5">
                 <div className='container'>
                     <div className='row ProductDetailCardStyle col-12 py-5 pb-5' key={currentItem.id}>
-                        <div className='col-md-6 d-flex justify-content-center' style={{background:"#F5F5F5", alignItems:"center"}}><img src={currentItem.thumbnail} style={{  }}  className='py-5 productDetailImg'/></div>
+                        <div className='col-md-6 d-flex justify-content-center' style={{background:"#F5F5F5", alignItems:"center"}}><img src={currentItem.thumbnail} style={{  }} alt='thumnil img' className='py-5 productDetailImg'/></div>
                         <div className='col-md-6 ps-lg-5  '>
                             <div className=''>
                                 <p className=' p-1 m-0' style={{ fontSize: "20px", fontWeight: "600" }}> {currentItem.title}</p>
@@ -223,7 +211,6 @@ function ProductDetail() {
                     </div>
                 </div>
             </div>
-            <Footer/>
         </>
     );
 }
