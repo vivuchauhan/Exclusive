@@ -189,7 +189,7 @@ function Home() {
                       <ul className="searchResultsList bg-light border px-2 list-unstyled">
                         {searchResults.map((item) => (
                           <li key={item.id} className='' style={{cursor:"pointer"}} onClick={() => handleProductDetail(item)}>
-                            <Link className='results' to="./productDetail" onClick={() => handleSearchResultClick(item.id)}>
+                            <Link className='results' style={{fontSize:"18px"}} to="./productDetail" onClick={() => handleSearchResultClick(item.id)}>
                               {item.title}
                             </Link>
                           </li>
