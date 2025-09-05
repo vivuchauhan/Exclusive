@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./css/product.css";
 import {useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {  addToCart, productDetail, addToWishlist } from '../redux/action/action';
 
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -36,6 +36,7 @@ const clampStyle = {
 
 function ProductDetail() {
     const dispatch = useDispatch();
+     const navigate = useNavigate();
     const products = useSelector((state) => state.product.product);
     const product = useSelector((state) => state.product.productDetails);
 
@@ -103,8 +104,11 @@ function ProductDetail() {
                         <div className='col-md-6 ps-lg-5  '>
                             <div className=''>
                                 <p className=' p-1 m-0' style={{ fontSize: "20px", fontWeight: "600" }}> {currentItem.title}</p>
-                                <p className=' pb-2 p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Rating:<span style={{color:"#fc530a", fontWeight:"600"}}> {currentItem.rating} </span></p>
-                                <p className=' p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Price: <span className='text-success'>₹{currentItem.price}</span></p>
+                                <p className=' pb-2 p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Rating:<span style={{color:"#fc530a", fontWeight:"600"}}>
+                                    
+                                            <span className='bg-success text-light px-2 rounded me-2 ms-2 py-1'>{currentItem.rating} ★</span>
+                                    </span></p>
+                                <p className=' p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Price: <span className='text-success h5'>₹{currentItem.price}</span></p>
                                 <p className=' p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Category: <span style={{color:"#908e91"}}>{currentItem.category}</span></p>
                                 <p className=' p-1 m-0' style={DiscriptionStyle}><span style={{ fontSize: "15px", fontWeight: "600" }}>Description:</span> {currentItem.description}</p>
                             </div>
@@ -125,13 +129,14 @@ function ProductDetail() {
                                 <input type="radio" className="btn-check" name="options-base" id="option8" autocomplete="off" disabled/>
                                 <label className="btn" for="option8">XXL</label>
                             </div>
-                            <div className=' mt-3 p-1 d-flex gap-2'>
-                                <button size="small" style={{ fontSize: "15px", color: "white", background:"#DB4444" }} className='border-0 px-3 py-1'>Buy Now</button>
+                            <div className='mt-3 p-1 d-flex gap-2'>
+                                <button size="small" style={{ fontSize: "15px", color: "white", background:"#DB4444" }} className='border-0 px-3 py-1' onClick={() => handleAddToCart(currentItem)}><Link to="/cart" class="text-decoration-none text-light fw-semibold">Buy Now</Link></button>
                                 <button size="small" style={{ fontSize: "15px", color: "white", background:"#000"  }} className='border-0 px-3 py-1' onClick={() => handleAddToCart(currentItem)}>Add To Cart</button>
                                 <button className='Btn wishlistBtn' onClick={() => handleAddToWishlist(currentItem)}>
                                  <img className='wishlistIcon' src={wishlistState.imageSrc} alt='imgWishlist' />
                                 </button>
                             </div>
+                            
                             <div>
                                 <div className='d-flex mt-3' style={{border:"1px solid #7D8184", padding:"10px 20px"}}>
                                 <img src={ProductDImg1} alt='...' className='img-fluid' style={{width:"30px", height:"30px"}}/>
@@ -150,9 +155,26 @@ function ProductDetail() {
                             </div>
                         </div>
                     </div>
-                    <div className='row ps-lg-5'>
-                        <div className='container ps-lg-5' style={{display:"flex", alignItems:"center"}}><span style={{width:"15px", height:"30px", background:"#DB4444", borderRadius:"3px"}}></span><h4 className='mt-2 ms-2' style={{color:"#DB4444"}}>Related Item</h4></div>
-                        <div className="container ps-lg-5" style={{ overflow: 'hidden', overflowY: 'hidden' }}>
+                    <div className='row gap-3 mb-4 ps-2'>
+                        <h3>Ratings & Reviews</h3>
+                        {  currentItem.reviews.map((item)=>{
+                                return(
+                                <>
+                                    <div className='col-3 border rounded p-3'>
+                                        <h6>
+                                            <span className='bg-success text-light px-2 rounded me-2'>{item.rating} ★</span>
+                                            {item.reviewerName}
+                                        </h6>
+                                        <p>{item.comment}</p>
+                                    </div>
+                                </>
+                                )
+                            })
+                        }
+                    </div>
+                    <div className='row'>
+                        <div className='container' style={{display:"flex", alignItems:"center"}}><span style={{width:"15px", height:"30px", background:"#DB4444", borderRadius:"3px"}}></span><h4 className='mt-2 ms-2' style={{color:"#DB4444"}}>Related Item</h4></div>
+                        <div className="container" style={{ overflow: 'hidden', overflowY: 'hidden' }}>
                             <div className="container ps-0">
                                 <OwlCarousel 
                                     className="owl-carousel owl-theme py-lg-4"

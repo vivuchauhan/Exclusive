@@ -66,7 +66,7 @@ function App() {
     setCurrentUser(null);
   };
 
-  if (loading) return <p className="text-center mt-5">Checking session...</p>;
+  if (loading) return <p className="text-center mt-5">loading...</p>;
 
   return (
     <BrowserRouter>

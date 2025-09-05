@@ -2,21 +2,52 @@
     width: 20%;
     padding: 20px;
     border-radius:10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     display: flex;
     flex-direction: column;
     background-color: #fdf0f0;
     margin: 20px 0 0 30px;
+      position: relative;
 }
 .bestSellingProductCard{
     width: 19% !important;
     padding: 20px;
     border-radius:10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     display: flex;
     flex-direction: column;
     background-color: #fdf0f0;
     margin: 20px 0 0 30px;
+}
+
+.WomansCardStyle .discount{
+    background-color: #DB4444;
+    color: #fff;
+    width: 55px;
+    height: 26px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 13px;
+}
+.AddToCartBtn {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  border: 1px solid;
+  border-radius: 5px !important;
+  padding: 6px 10px;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  background-color: #000 !important;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.WomansCardStyle:hover .AddToCartBtn {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media only screen and (min-width: 320px) and (max-width: 425px) {

@@ -96,15 +96,22 @@ function GroceriesPets() {
                         <p className="text-center p-0 m-0 " style={clampStyle}>
                           {item.title}
                         </p>
-                        <p className="text-center p-0 m-0 homeCardText" style={CategoryclampStyle}>
-                          {item.category}
-                        </p>
                         <p className="text-center p-0 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '600' }}>
-                          Price: <span className="text-success"> ₹{item.price}</span>
+                          <span className="text-success"> ₹{item.price}</span>
                         </p>
-                        <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
+                        {/* <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
                           Rating: <span style={{ color: "#fc530a" }}>{item.rating}</span>
-                        </p>
+                        </p> */}
+                        <p className="text-center pb-2 m-0 homeCardText text-dark" 
+                            style={{ fontSize: '15px', fontWeight: '400' }}>
+                            <span style={{ color: "#fc530a" }}>
+                              {
+                                "★".repeat(Math.floor(item.rating)) +
+                                (item.rating % 1 >= 0.5 ? "⯨" : "") +
+                                "☆".repeat(5 - Math.ceil(item.rating))
+                              }
+                            </span>
+                          </p>
                         <button className='AddToCartBtn' size="small" style={{ fontSize: '15px' }} onClick={() => handleAddToCart(item)}>
                           Add To Cart
                         </button>
@@ -114,7 +121,12 @@ function GroceriesPets() {
                 </div>
                 {/* Pagination Controls */}
                 <div className="d-flex justify-content-center align-items-center gap-2 my-4">
-                  <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className="btn btn-secondary">Prev</button>
+                  <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className="btn btn-secondary d-flex align-items-center justify-content-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                      <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                    </svg>
+                  </button>
                   {[...Array(totalPages)].map((_, index) => (
                     <button key={index + 1}
                       className={`btn ${currentPage === index + 1 ? 'btn-primary' : 'btn-outline-primary'}`}
@@ -122,7 +134,12 @@ function GroceriesPets() {
                       {index + 1}
                     </button>
                   ))}
-                  <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages} className="btn btn-secondary">Next</button>
+                  <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages} className="btn btn-secondary d-flex align-items-center justify-content-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
+                        <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"/>
+                      </svg>
+                  </button>
                 </div>
               </div>
             </div>

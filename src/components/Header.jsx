@@ -78,9 +78,9 @@ function Header({ onLogout , user }){
                         <input className="form-check-input theme-toggle-btn" type="checkbox" role="switch"  onClick={toggleTheme}/>
                     </div> */}
                     <div className='headerIconsCont'>
-                        <div className='border rounded'>
+                        <div className='d-flex justify-content-center align-items-center'>
                            {user && (
-                            <small className="fw-bold d-flex flex-column text-center" style={{width:"70px"}}>
+                            <small className="border rounded fw-bold d-flex flex-column text-center align-items-center py-1" style={{width:"70px"}}>
                                👤 {user.name.length > 5 ? user.name.substring(0, 6) : user.name}
                             </small>
                             )}

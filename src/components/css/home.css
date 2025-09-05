@@ -60,7 +60,7 @@
     justify-content: center;
     align-items: center;
     padding: 0 !important;
-    border: 1px solid #fff;
+    border: 1.5px solid #fff !important;
 }
 .maincarosel .owl-nav .owl-next{
     background-color: #000 !important;
@@ -71,7 +71,14 @@
     justify-content: center;
     align-items: center;
     padding: 0 !important;
-    border: 1px solid #fff;
+    border: 1.5px solid #fff !important;
+}
+.maincarosel .owl-dots span{
+    border:1px solid #dd7622 !important;
+    background-color: #fff !important;
+}
+.maincarosel .owl-dots .active span{
+    background-color: #dd2222 !important;
 }
 /* search container */
 .searchCont{
@@ -86,9 +93,37 @@
 }
 .searchResultsListCont{
     position:absolute;
-    overflow:hidden;
+    z-index: 1002;
     height:140px;
 }
+.searchResultsList {
+  width: 100%;
+  height: 130px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ff4726e3 #f1f1f1;
+}
+.searchResultsList .results:hover{
+    color: #ff6b02 !important;
+}
+.searchResultsList::-webkit-scrollbar {
+  width: 8px; 
+}
+
+.searchResultsList::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+}
+
+.searchResultsList::-webkit-scrollbar-thumb {
+  background: #fc530a;
+  border-radius: 10px;
+}
+
+.searchResultsList::-webkit-scrollbar-thumb:hover {
+  background: #e14a00; 
+}
+
 .searchResultsListCont .results{
     text-decoration:none !important;
     color:#000 !important;
@@ -107,7 +142,7 @@
     border:1px solid #D6D5D5 ;
     width:100%;
     padding:5px 10px;
-    background:#f8f6f6;
+    background:#fff;
     border-radius:5px;
 }
 
@@ -167,8 +202,6 @@
 }
 /* card css */
 .HomeCardImg {
-    width:98% !important;
-    height: 120px;
     cursor: pointer;
     transition: transform 0.3s ease-out;
 }
@@ -178,26 +211,61 @@
 .homeCardText{
     font-size: 14px !important;
 }
-.CardStyle{
-    width: 100% !important;
-    padding: 20px;
-    border-radius:10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-    height: auto !important;
+.CardStyle {
+  width: 100% !important;
+
+  border-radius: 10px;
+  height: auto !important;
+  display: flex;
+  flex-direction: column;
+  background-color: #fdf0f0;
+  position: relative;
+}
+.CardStyle .discount{
+    background-color: #DB4444;
+    color: #fff;
+    width: 45px;
+    height: 26px;
+    border-radius: 5px;
     display: flex;
-    flex-direction: column;
-    background-color: #fdf0f0;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 13px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
-.AddToCartBtn{
-    width: 100%;
-    border: 1px solid ;
-    border-radius: 5px !important;
-    padding: 2px 10px;
-    font-size: 14px !important;
-    font-weight: 600px !important;
-    background-color: #000 !important;
-    color: #fff !important;
+.card-img-wraper{
+    overflow:hidden;
+    background:#ece9e9ff;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
+.AddToCartBtn {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  border: 1px solid;
+  border-radius: 5px !important;
+  padding: 6px 10px;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  background-color: #000 !important;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.CardStyle:hover .AddToCartBtn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .AddToCartBtn:hover{
     background-color: #5c5a5a !important;
     color: #fff !important;
@@ -234,7 +302,11 @@
     font-weight: 600;
     line-height: 20px;
 }
-
+.flashSaleCont-slider .owl-nav{
+    position: absolute !important;
+    right: 0;
+    top: -50px;
+}
 /* this month container css */
 .thisMonthCont span{
     width:15px;
@@ -329,7 +401,7 @@
         border:1px solid #D6D5D5 ;
         width:100%;
         padding:0px 10px;
-        background:#e6e1e1;
+        background:#fff;
         border-radius:5px;
         height: 28px;
     }
@@ -382,7 +454,7 @@
     }
     .CardStyle{
         width: 100% !important;
-        padding: 15px 10px;
+       
         height: auto !important;
     }
     .AddToCartBtn{
@@ -518,7 +590,7 @@
         border:1px solid #D6D5D5 ;
         width:100%;
         padding:0px 10px;
-        background:#e6e1e1;
+        background:#fff;
         border-radius:5px;
         height: 28px;
     }
@@ -571,7 +643,6 @@
     }
     .CardStyle{
         width: 100% !important;
-        padding: 15px 10px;
         height: auto !important;
     }
     .AddToCartBtn{
@@ -713,7 +784,7 @@
         border:1px solid #D6D5D5 ;
         width:100%;
         padding:0px 10px;
-        background:#e6e1e1;
+        background:#fff;
         border-radius:5px;
         height: 28px;
     }
@@ -766,7 +837,6 @@
     }
     .CardStyle{
         width: 100% !important;
-        padding: 15px 10px;
         height: auto !important;
     }
     .AddToCartBtn{
@@ -907,9 +977,9 @@
         border:1px solid #D6D5D5 ;
         width:100%;
         padding:0px 10px;
-        background:#e6e1e1;
+        background:#fff;
         border-radius:5px;
-        height: 28px;
+        height: 38px;
     }
     .searchInputCont input::placeholder{
         font-size: 14px;
@@ -940,7 +1010,6 @@
     }
     .flashSaleCont h2{
         font-size: 23px;
-        margin-bottom: 30px;
         line-height: 20px;
     }
     .flashSaleCont {
@@ -960,7 +1029,6 @@
     }
     .CardStyle{
         width: 100% !important;
-        padding: 15px 10px;
         height: auto !important;
     }
     .AddToCartBtn{

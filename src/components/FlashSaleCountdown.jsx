@@ -1,10 +1,8 @@
-// FlashSaleCountdown.js
 
 import React, { useEffect, useState } from 'react';
 import "./css/home.css";
 
 const FlashSaleCountdown = () => {
-  // ... your existing countdown logic here
   const calculateRemainingTime = () => {
     const flashSaleEndTime = new Date('2026-12-10T18:00:00Z');
     const now = new Date();
@@ -33,7 +31,7 @@ const FlashSaleCountdown = () => {
   }, []);
 
   return (
-    <ul className='list-unstyled d-flex gap-3 HomePgTime'>
+    <ul className='list-unstyled d-flex mb-0 gap-3 HomePgTime'>
       <li>
           <p>Hours</p>
           <span>{Math.floor((remainingTime % 86400) / 3600)}</span>

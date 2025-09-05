@@ -51,6 +51,7 @@ function Home() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.product);
   const [searchInput, setSearchInput] = useState('');
+  const [randomOffsets, setRandomOffsets] = useState({});
 
   const [searchResults, setSearchResults] = useState([]);
 
@@ -68,6 +69,14 @@ function Home() {
   useEffect(() => {
     dispatch(fetchProduct());
   }, [dispatch]);
+
+  useEffect(() => {
+    const offsets = {};
+    products.forEach(item => {
+      offsets[item.id] = Math.floor(Math.random() * 200); // 0–200 random
+    });
+    setRandomOffsets(offsets);
+  }, [products]);
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
@@ -160,7 +169,7 @@ function Home() {
                 <div className='searchCont'>
                   <div className='' style={{display:"flex", alignItems:"center"}}><span></span><h4 className='mt-5 ms-2' style={{color:"#DB4444"}}>Todays</h4></div>
                   <div className='searchCont2' >
-                    <div className="d-flex justify-content-center searchInputCont me-lg-5 mt-5">
+                    <div className="d-flex justify-content-center searchInputCont me-lg-5 mt-5 ps-0">
                       <input
                         type="text"
                         placeholder="What are you looking for?"
@@ -176,26 +185,28 @@ function Home() {
                       </div>
                     </div>
                     {/* Search results */}
-                    <div className="container searchResultsListCont">
-                      <ul className="searchResultsList list-unstyled">
+                    {searchResults.length > 0 && (<div className="container searchResultsListCont px-0">
+                      <ul className="searchResultsList bg-light border px-2 list-unstyled">
                         {searchResults.map((item) => (
-                          <li key={item.id} className=' searchInputCont ' style={{cursor:"pointer"}} onClick={() => handleProductDetail(item)}>
+                          <li key={item.id} className='' style={{cursor:"pointer"}} onClick={() => handleProductDetail(item)}>
                             <Link className='results' to="./productDetail" onClick={() => handleSearchResultClick(item.id)}>
                               {item.title}
                             </Link>
                           </li>
                         ))}
                       </ul>
-                    </div>
+                    </div>)}
                   </div>
                 </div>
                 <div className='d-flex flashSaleCont'>
-                  <h2 className='mt-5 ms-lg-2' style={{ color: 'black' }}>Flash Sales</h2>
-                  <div className='ms-lg-5 d-flex'>
-                    <FlashSaleCountdown/>
-                  </div>
+                 <div className='d-flex align-items-end'>
+                   <h2 className='mt-5 ms-lg-2' style={{ color: 'black' }}>Flash Sales</h2>
+                    <div className='ms-lg-5 d-flex'>
+                      <FlashSaleCountdown/>
+                    </div>
+                 </div>
                 </div>
-                <div className="container">
+                <div className="container flashSaleCont-slider">
                   <OwlCarousel 
                       className="owl-carousel owl-theme py-lg-4"
                       loop={true}
@@ -221,23 +232,41 @@ function Home() {
                     >
                     {FlashSale.map((item) => (
                       <div className='item CardStyle my-lg-4 mb-4 wishlistIconCont'  key={item.id}>
-                        <Link className='' to="/productDetail" onClick={() => handleProductDetail(item)} style={{overflow:"hidden"}}>
-                          <div style={{overflow:"hidden"}}>
-                            <img className='HomeCardImg' src={item.thumbnail} alt={item.title} />
+                       <div className='discount'>
+                          <small> -{Math.ceil(item.discountPercentage)}%</small>
+                        </div>
+                        <Link className='' to="/productDetail" onClick={() => handleProductDetail(item)}>
+                          <div className='card-img-wraper'>
+                            <img className='HomeCardImg img-fluid' src={item.thumbnail} alt={item.title} />
                           </div>
                         </Link>
-                        <div className="mt-2">
-                          <p className="text-center p-0 m-0 " style={clampStyle}>
+                        <div className="mt-2 px-2">
+                          <p className="text-start p-0 m-0 " style={clampStyle}>
                             {item.title}
                           </p>
-                          <p className="text-center p-0 m-0 homeCardText" style={CategoryclampStyle}>
-                            {item.category}
+                          <p className="d-flex mt-2 justify-content-between align-items-center p-0 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '600' }}>
+                            <span className="text-success mb-0 text-end h5"> ₹{item.price}</span>
+                            <small className="text-success">in stock <span className='text-danger'>({item.stock})</span></small>
                           </p>
-                          <p className="text-center p-0 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '600' }}>
-                            Price: <span className="text-success"> ₹{item.price}</span>
-                          </p>
-                          <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
+                          {/* <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
                             Rating: <span style={{color:"#fc530a"}}>{item.rating}</span>
+                          </p> */}
+                          <p className="text-start pb-2 m-0 homeCardText text-dark" 
+                            style={{ fontSize: '15px', fontWeight: '400' }}>
+                            <span style={{ color: "#f89a0dff", fontSize:"20px" }}>
+                              <small style={{fontSize:"16px"}}>({item.rating})</small>
+                              {
+                                "★".repeat(Math.floor(item.rating)) +
+                                (item.rating % 1 >= 0.5 ? "⯨" : "") +
+                                "☆".repeat(5 - Math.ceil(item.rating))+" "
+                              }
+                              <small 
+                                className='text-secondary' 
+                                style={{ fontSize: "15px" }}
+                              >
+                                ({item.reviews.length + (randomOffsets[item.id] || 0)})
+                              </small>
+                            </span>
                           </p>
                         </div>
                         <div className="text-center ">
@@ -285,34 +314,47 @@ function Home() {
                           },
                         }}
                       >
-                      {bestSellingProducts.map((item) => (
-                        <div className='item CardStyle my-4'  key={item.id}>
-                          <Link to="/productDetail" onClick={() => handleProductDetail(item)}>
-                            <div className='text-center ps-2'>
-                              <img className='HomeCardImg' src={item.thumbnail} style={{ width: '140px', height: '120px', cursor: 'pointer' }} alt={item.title} />
+                     
+                         {bestSellingProducts.map((item) => (
+                          <div className='item CardStyle my-lg-4 mb-4 wishlistIconCont'  key={item.id}>
+                          <div className='discount'>
+                              <small> -{Math.ceil(item.discountPercentage)}%</small>
                             </div>
-                          </Link>
-                          <div className="mt-2">
-                            <p className="text-center p-0 m-0 " style={clampStyle}>
-                              {item.title}
-                            </p>
-                            <p className="text-center p-0 m-0 homeCardText" style={CategoryclampStyle}>
-                              {item.category}
-                            </p>
-                            <p className="text-center p-0 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '600' }}>
-                              Price: <span className="text-success"> ₹{item.price}</span>
-                            </p>
-                            <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
-                              Rating: <span style={{color:"#fc530a"}}>{item.rating}</span>
-                            </p>
+                            <Link className='' to="/productDetail" onClick={() => handleProductDetail(item)}>
+                              <div className='card-img-wraper'>
+                                <img className='HomeCardImg img-fluid' src={item.thumbnail} alt={item.title} />
+                              </div>
+                            </Link>
+                            <div className="mt-2 px-2">
+                              <p className="text-start p-0 m-0 " style={clampStyle}>
+                                {item.title}
+                              </p>
+                              <p className="d-flex mt-2 justify-content-between align-items-center p-0 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '600' }}>
+                                <span className="text-success mb-0 text-end h5"> ₹{item.price}</span>
+                                <small className="text-success">in stock <span className='text-danger'>({item.stock})</span></small>
+                              </p>
+                              {/* <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
+                                Rating: <span style={{color:"#fc530a"}}>{item.rating}</span>
+                              </p> */}
+                              <p className="text-start pb-2 m-0 homeCardText text-dark" 
+                                style={{ fontSize: '15px', fontWeight: '400' }}>
+                                <span style={{ color: "#fc530a", fontSize:"20px" }}>
+                                  {
+                                    "★".repeat(Math.floor(item.rating)) +
+                                    (item.rating % 1 >= 0.5 ? "⯨" : "") +
+                                    "☆".repeat(5 - Math.ceil(item.rating))+" "
+                                  }
+                                  <small className='text-secondary' style={{fontSize:"16px"}}>({item.reviews.length})</small>
+                                </span>
+                              </p>
+                            </div>
+                            <div className="text-center ">
+                              <button className='AddToCartBtn' size="small" style={{ fontSize: '15px' }} onClick={() => handleAddToCart(item)}>
+                                Add To Cart
+                              </button>
+                            </div>
                           </div>
-                          <div className="text-center ">
-                            <button className='AddToCartBtn' size="small" style={{ fontSize: '15px' }} onClick={() => handleAddToCart(item)}>
-                              Add To Cart
-                            </button>
-                          </div>
-                        </div>
-                        ))}
+                          ))}
                     </OwlCarousel>
                 </div>
               </div>
@@ -356,34 +398,46 @@ function Home() {
                           },
                         }}
                       >
-                      {products.map((item) => (
-                        <div className='item CardStyle my-4'  key={item.id}>
-                          <Link to="/productDetail" onClick={() => handleProductDetail(item)}>
-                            <div className='text-center ps-2'>
-                              <img className='HomeCardImg' src={item.thumbnail} style={{ width: '140px', height: '120px', cursor: 'pointer' }} alt={item.title} />
+                        {products.map((item) => (
+                          <div className='item CardStyle my-lg-4 mb-4 wishlistIconCont'  key={item.id}>
+                          <div className='discount'>
+                              <small> -{Math.ceil(item.discountPercentage)}%</small>
                             </div>
-                          </Link>
-                          <div className="mt-2">
-                            <p className="text-center p-0 m-0 " style={clampStyle}>
-                              {item.title}
-                            </p>
-                            <p className="text-center p-0 m-0 homeCardText" style={CategoryclampStyle}>
-                              {item.category}
-                            </p>
-                            <p className="text-center p-0 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '600' }}>
-                              Price: <span className="text-success"> ₹{item.price}</span>
-                            </p>
-                            <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
-                              Rating: <span style={{color:"#fc530a"}}>{item.rating}</span>
-                            </p>
+                            <Link className='' to="/productDetail" onClick={() => handleProductDetail(item)}>
+                              <div className='card-img-wraper'>
+                                <img className='HomeCardImg img-fluid' src={item.thumbnail} alt={item.title} />
+                              </div>
+                            </Link>
+                            <div className="mt-2 px-2">
+                              <p className="text-start p-0 m-0 " style={clampStyle}>
+                                {item.title}
+                              </p>
+                              <p className="d-flex mt-2 justify-content-between align-items-center p-0 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '600' }}>
+                                <span className="text-success mb-0 text-end h5"> ₹{item.price}</span>
+                                <small className="text-success">in stock <span className='text-danger'>({item.stock})</span></small>
+                              </p>
+                              {/* <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
+                                Rating: <span style={{color:"#fc530a"}}>{item.rating}</span>
+                              </p> */}
+                              <p className="text-start pb-2 m-0 homeCardText text-dark" 
+                                style={{ fontSize: '15px', fontWeight: '400' }}>
+                                <span style={{ color: "#fc530a", fontSize:"20px" }}>
+                                  {
+                                    "★".repeat(Math.floor(item.rating)) +
+                                    (item.rating % 1 >= 0.5 ? "⯨" : "") +
+                                    "☆".repeat(5 - Math.ceil(item.rating))+" "
+                                  }
+                                  <small className='text-secondary' style={{fontSize:"16px"}}>({item.reviews.length})</small>
+                                </span>
+                              </p>
+                            </div>
+                            <div className="text-center ">
+                              <button className='AddToCartBtn' size="small" style={{ fontSize: '15px' }} onClick={() => handleAddToCart(item)}>
+                                Add To Cart
+                              </button>
+                            </div>
                           </div>
-                          <div className="text-center ">
-                            <button className='AddToCartBtn' size="small" style={{ fontSize: '15px' }} onClick={() => handleAddToCart(item)}>
-                              Add To Cart
-                            </button>
-                          </div>
-                        </div>
-                        ))}
+                          ))}
                     </OwlCarousel>
                 </div>
               </div>
