@@ -169,7 +169,7 @@ function Home() {
                 <div className='searchCont'>
                   <div className='' style={{display:"flex", alignItems:"center"}}><span></span><h4 className='mt-5 ms-2' style={{color:"#DB4444"}}>Todays</h4></div>
                   <div className='searchCont2' >
-                    <div className="d-flex justify-content-center searchInputCont me-lg-5 mt-5 ps-0">
+                    <div className="d-flex justify-content-center searchInputCont me-lg-5 mt-4 ps-0">
                       <input
                         type="text"
                         placeholder="What are you looking for?"
