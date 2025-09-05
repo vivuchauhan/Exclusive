@@ -127,7 +127,7 @@
 .searchResultsListCont .results{
     text-decoration:none !important;
     color:#000 !important;
-    font-size:12px !important;
+    font-size:18px !important;
     font-size:600 !important;
     width:100% !important;
 }
@@ -967,7 +967,7 @@
         height:115px;
     }
     .searchResultsListCont .results{
-        font-size:12px !important;
+        font-size:16px !important;
         width:100% !important;
     }
     .searchCont span{
