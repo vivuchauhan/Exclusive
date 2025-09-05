@@ -202,6 +202,8 @@
 }
 /* card css */
 .HomeCardImg {
+    width: 98%;
+    height: auto;
     cursor: pointer;
     transition: transform 0.3s ease-out;
 }
@@ -235,6 +237,8 @@
     position: absolute;
     top: 10px;
     left: 10px;
+    z-index:20;
+
 }
 .card-img-wraper{
     overflow:hidden;
