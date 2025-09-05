@@ -66,7 +66,14 @@ function App() {
     setCurrentUser(null);
   };
 
-  if (loading) return <p className="text-center mt-5">loading...</p>;
+  if (loading) return <div className="position-relative">
+      <div className="text-center d-flex justify-content-center align-items-center gap-2 mt-5 mt-5 position-absolute leading-message">
+        <div class="spinner-border text-success" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <h2>Loading...</h2>
+      </div>
+    </div>;
 
   return (
     <BrowserRouter>
