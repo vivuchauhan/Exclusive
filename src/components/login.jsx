@@ -63,7 +63,14 @@ function Login() {
     <>
       <div className="container my-5" style={{ maxWidth: "400px" }}>
         {loading ? (
-          <p className="text-center">Checking session...</p>
+          <div className="">
+            <div className="text-center d-flex justify-content-center align-items-center gap-2 leading-message">
+              <div class="spinner-border text-success" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <h2>Loading...</h2>
+            </div>
+          </div>
         ) : currentUser ? (
           // If logged in → show nothing (redirect already handled)
           <p className="text-center">You are already logged in.</p>

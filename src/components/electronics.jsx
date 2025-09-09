@@ -87,7 +87,12 @@ function Electronics() {
             </div>
             <div className="col-md-9 col-12 pt-lg-4 p-0">
               <div className='row justify-content-center'>
-              <h4 className='text-center'>Electronics collection's</h4>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb ps-3">
+                  <li class="breadcrumb-item"><a href="./">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Electronics collection's</li>
+                </ol>
+              </nav>
                 {paginatedProducts.map((item) => (
                   <div className='col-md-4 col-sm-6 col-12 mb-4 WomansCardStyle' key={item.id}>
                     <Link to="/productDetail" onClick={() => handleProductDetail(item)} style={{ overflow: "hidden", textDecoration: "none" }}>

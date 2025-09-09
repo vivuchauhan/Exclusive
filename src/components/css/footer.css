@@ -1,7 +1,15 @@
-.footerLink:hover{
-    color: rgb(211, 153, 153) !important;
-}
 
+.footer-main h4{
+    font-size: px;
+}
+.footer-main li a{
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+}
+.footer-main li a:hover{
+    color: rgb(242, 55, 55);
+}
 
 @media only screen and (min-width: 320px) and (max-width: 425px) {
 

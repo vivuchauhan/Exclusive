@@ -18,7 +18,12 @@ function BabysToys() {
               </div>
               <div className="col-md-9 col-12 pt-lg-4 p-0">
                 <div className='row justify-content-center'>
-                <h4 className='text-center'>Baby’s & Toys collections</h4>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb ps-3">
+                    <li class="breadcrumb-item"><a href="./">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Baby’s & Toys collections</li>
+                  </ol>
+                </nav>
                   <img src='https://media.istockphoto.com/id/1302168946/vector/coming-soon-red-ribbon-label-banner-open-available-now-sign-or-coming-soon-tag-vector.jpg?s=612x612&w=0&k=20&c=uzI1Ztsm3NcyQCscb1kQ3goarshfkR_n2ZDhAwgYPWQ=' alt='' className='img-fluid' />
                 </div>
               </div>
