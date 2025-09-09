@@ -7,17 +7,15 @@
 .cartLeftCont .container{
     padding:"0 0 0 130px"
 }
-.cartPgHeading{
-    margin-left: 150px;
-}
+
 .AmountCarTStyle{
     height: 600px !important;
     border-left: 1px solid #D6D5D5;
-    padding: 20px 0 50px 0px !important;
-    width: 30%;
+    padding: 20px 20 50px 20px !important;
     background-color: #fdf0f0;
     margin-top: 75px;
     border: 1px solid #D6D5D5;
+    border-radius: 7px;
 }
 .CartContStyle{
     width: 100% !important;
@@ -30,7 +28,7 @@
     height: auto;
     border: 1px solid #D6D5D5;
     padding: 10px;
-    width:70% !important;
+    width:100% !important;
     background-color: #fdf0f0;
 }
 .homeCardText{
@@ -185,7 +183,7 @@
         align-items: center;
     }
     .cartPgHeading{
-        margin-left:20px;
+        margin-left:0px;
     }
     .cartLeftCont{
         width:100%;
@@ -223,7 +221,7 @@
         align-items: center;
     }
     .cartPgHeading{
-        margin-left:20px;
+        margin-left:0px;
     }
     .cartLeftCont{
         width:65%;
@@ -236,12 +234,11 @@
     .AmountCarTStyle{
         height: 370px !important;
         padding: 10px;
-        width: 30%;
         margin-bottom: 30px;
     }
     .CarTStyle{
         padding: 10px;
-        width: auto !important;
+        width: 100% !important;
     }
     .OrderPgDileveryDate{
         font-size: 17px;
@@ -255,7 +252,7 @@
         align-items: center;
     }
     .cartPgHeading{
-        margin-left:20px;
+        margin-left:0px;
     }
     .cartLeftCont{
         width:65%;
@@ -268,11 +265,10 @@
     .AmountCarTStyle{
         height: 370px !important;
         padding: 10px;
-        width: 30%;
         margin-bottom: 30px;
     }
     .CarTStyle{
         padding: 10px;
-        width: auto !important;
+        width: 100% !important;
     }
 }
