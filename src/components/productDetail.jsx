@@ -105,9 +105,8 @@ function ProductDetail() {
                             <div className=''>
                                 <p className=' p-1 m-0' style={{ fontSize: "20px", fontWeight: "600" }}> {currentItem.title}</p>
                                 <p className=' pb-2 p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Rating:<span style={{color:"#fc530a", fontWeight:"600"}}>
-                                    
-                                            <span className='bg-success text-light px-2 rounded me-2 ms-2 py-1'>{currentItem.rating} ★</span>
-                                    </span></p>
+                                    <span className='bg-success text-light px-2 rounded me-2 ms-2 py-1'>{currentItem.rating} ★</span>
+                                </span></p>
                                 <p className=' p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Price: <span className='text-success h5'>₹{currentItem.price}</span></p>
                                 <p className=' p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Category: <span style={{color:"#908e91"}}>{currentItem.category}</span></p>
                                 <p className=' p-1 m-0' style={DiscriptionStyle}><span style={{ fontSize: "15px", fontWeight: "600" }}>Description:</span> {currentItem.description}</p>

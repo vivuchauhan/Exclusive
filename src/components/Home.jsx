@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./css/home.css";
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProduct, addToCart, productDetail  } from '../redux/action/action';
+import { fetchProduct, addToCart, productDetail, addToWishlist } from '../redux/action/action';
 
 import CaroselImg1 from './images/carosel/banner1.png';
 import CaroselImg2 from './images/carosel/banner2.png';
@@ -16,6 +16,8 @@ import aboutLastContImg1 from './images/about/S1.png';
 import aboutLastContImg2 from './images/about/S2.png';
 import aboutLastContImg3 from './images/about/S3.png';
 import FlashSaleCountdown from './flashSaleCountdown';
+import redImg from './images/Home/full.png'
+import emptyImg from './images/Home/empty.png'
 import SideNavBar from './sideNavBar';
 
 
@@ -54,6 +56,14 @@ function Home() {
   const [randomOffsets, setRandomOffsets] = useState({});
 
   const [searchResults, setSearchResults] = useState([]);
+
+  const [wishlist, setWishlist] = useState(
+    JSON.parse(localStorage.getItem("wishlist")) || []
+  );
+
+    useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  }, [wishlist]);
 
   useEffect(() => {
     document.querySelectorAll(".owl-carousel").forEach((el) => {
@@ -113,6 +123,17 @@ function Home() {
     if (product) {
       handleProductDetail(product);
     }
+  };
+
+  const handleAddToWishlist = (item) => {
+    setWishlist((prev) => {
+      if (prev.includes(item.id)) {
+        return prev.filter((id) => id !== item.id);
+      } else {
+        return [...prev, item.id];
+      }
+    });
+    dispatch(addToWishlist(item));
   };
 
   return (
@@ -199,9 +220,9 @@ function Home() {
                   </div>
                 </div>
                 <div className='d-flex flashSaleCont'>
-                 <div className='d-flex align-items-end'>
-                   <h2 className='mt-5 ms-lg-2' style={{ color: 'black' }}>Flash Sales</h2>
-                    <div className='ms-lg-5 d-flex'>
+                 <div className='d-flex  align-items-end'>
+                   <h2 className='mt-5 me-auto ms-lg-2' style={{ color: 'black' }}>Flash Sales</h2>
+                    <div className='ms-lg-5 ms-2 mb-3 mb-lg-0 d-flex'>
                       <FlashSaleCountdown/>
                     </div>
                  </div>
@@ -215,6 +236,7 @@ function Home() {
                       autoplay={true}
                       autoplayTimeout={3000}
                       dots={false}
+                      autoplayHoverPause={true}
                       responsive={{
                         0: {
                           items: 2,
@@ -233,8 +255,18 @@ function Home() {
                     {FlashSale.map((item) => (
                       <div className='item CardStyle my-lg-4 mb-4 wishlistIconCont'  key={item.id}>
                        <div className='discount'>
-                          <small> -{Math.ceil(item.discountPercentage)}%</small>
+                          <small> -{Math.ceil(item.discountPercentage)}% OFF</small>
                         </div>
+                        {/* <button 
+                            className="discount2 Btn wishlistBtn" 
+                            onClick={() => handleAddToWishlist(item)}
+                          >
+                            <img
+                              className="wishlistIcon"
+                              src={wishlist.includes(item.id) ? emptyImg : redImg }
+                              alt="wishlist"
+                            />
+                        </button> */}
                         <Link className='' to="/productDetail" onClick={() => handleProductDetail(item)}>
                           <div className='card-img-wraper'>
                             <img className='HomeCardImg img-fluid' src={item.thumbnail} alt={item.title} />
@@ -318,7 +350,7 @@ function Home() {
                          {bestSellingProducts.map((item) => (
                           <div className='item CardStyle my-lg-4 mb-4 wishlistIconCont'  key={item.id}>
                           <div className='discount'>
-                              <small> -{Math.ceil(item.discountPercentage)}%</small>
+                              <small> -{Math.ceil(item.discountPercentage)}% OFF</small>
                             </div>
                             <Link className='' to="/productDetail" onClick={() => handleProductDetail(item)}>
                               <div className='card-img-wraper'>
@@ -401,7 +433,7 @@ function Home() {
                         {products.map((item) => (
                           <div className='item CardStyle my-lg-4 mb-4 wishlistIconCont'  key={item.id}>
                           <div className='discount'>
-                              <small> -{Math.ceil(item.discountPercentage)}%</small>
+                              <small> -{Math.ceil(item.discountPercentage)}% OFF</small>
                             </div>
                             <Link className='' to="/productDetail" onClick={() => handleProductDetail(item)}>
                               <div className='card-img-wraper'>

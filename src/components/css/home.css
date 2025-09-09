@@ -226,7 +226,7 @@
 .CardStyle .discount{
     background-color: #DB4444;
     color: #fff;
-    width: 45px;
+    width: 55px;
     height: 26px;
     border-radius: 5px;
     display: flex;
@@ -237,6 +237,22 @@
     position: absolute;
     top: 10px;
     left: 10px;
+    z-index:20;
+
+}
+.CardStyle .discount2{
+    color: #fff;
+    width: 45px;
+    height: 26px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 13px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
     z-index:20;
 
 }
@@ -306,11 +322,7 @@
     font-weight: 600;
     line-height: 20px;
 }
-.flashSaleCont-slider .owl-nav{
-    position: absolute !important;
-    right: 0;
-    top: -50px;
-}
+
 /* this month container css */
 .thisMonthCont span{
     width:15px;
@@ -714,6 +726,11 @@
         padding: 0 20%;
         text-align: center;
     }
+     .flashSaleCont-slider .owl-nav{
+        position: absolute !important;
+        right: 0;
+        top: -70px;
+    }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
     .HomeCaroselImg{
@@ -908,6 +925,11 @@
         padding:0;
         text-align: center;
     }
+    .flashSaleCont-slider .owl-nav{
+        position: absolute !important;
+        right: 0;
+        top: -70px;
+    }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1439px) {
     .HomeCaroselImg{
@@ -1099,5 +1121,10 @@
         margin-top: 0px;
         padding:0;
         text-align: center;
+    }
+    .flashSaleCont-slider .owl-nav{
+        position: absolute !important;
+        right: 0;
+        top: -50px;
     }
 }

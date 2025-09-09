@@ -112,7 +112,7 @@ function Signup() {
         
        <div className="container">
          <h5 className="mt-5 text-center text-uppercase mb-3">Registered Users</h5>
-          <div className="row gap-3 justify-content-center">
+          <div className="row gap-3 justify-content-center ">
             {[...users]
               .sort((a, b) => {
                 const dateA = a.createdAt?.toDate ? a.createdAt.toDate() : new Date(a.createdAt);
@@ -120,7 +120,7 @@ function Signup() {
                 return dateB - dateA;
               })
               .map((user) => (
-                <div key={user.id} className="col-3 user-profile">
+                <div key={user.id} className="col-lg-3 col-sm-5 user-profile col-10">
                   <div className="circle text-dark">
                     {user.name.length > 1 ? user.name.substring(0, 1) : user.name}
                   </div>

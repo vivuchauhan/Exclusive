@@ -1,12 +1,14 @@
-import React from 'react'
+
+import React from 'react';
+import ResumePDF from './assets/vivek-updated-resume.pdf'; // adjust path
 import './css/about.css';
 
 export const Portfolio = () => {
   return (
-   <>
-      <div className='d-flex justify-content-center'>
-          <img src='https://media.istockphoto.com/id/1302168946/vector/coming-soon-red-ribbon-label-banner-open-available-now-sign-or-coming-soon-tag-vector.jpg?s=612x612&w=0&k=20&c=uzI1Ztsm3NcyQCscb1kQ3goarshfkR_n2ZDhAwgYPWQ=' alt='' className='img-fluid' />                
-      </div>
-   </>
-  )
-}
+    <div className='container d-flex justify-content-end flex-column align-items-center'>
+      <a href={ResumePDF} download className="btn btn-primary mt-4 mb-5">
+        Download My Resume
+      </a>
+    </div>
+  );
+};
