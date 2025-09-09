@@ -1,4 +1,4 @@
-// App.js
+
 import "./App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -38,7 +38,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // 🔹 Listen for auth changes
+  //Listen for auth changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
@@ -60,7 +60,7 @@ function App() {
     return () => unsubscribe();
   }, []);
 
-  // 🔹 Handle logout globally
+  // Handle logout globally
   const handleLogout = async () => {
     await signOut(auth);
     setCurrentUser(null);
@@ -80,24 +80,11 @@ function App() {
       <Header user={currentUser} onLogout={handleLogout} />
       <Routes>
         {/* Public routes */}
-        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/productDetail" element={<ProductDetail />} />
-        <Route path="/womansFashion" element={<WomansFashion />} />
-        <Route path="/mensFashion" element={<MensFashion />} />
-        <Route path="/jewelery" element={<Jewelery />} />
-        <Route path="/electronics" element={<Electronics />} />
-        <Route path="/homeLifestyle" element={<HomeLifestyle />} />
-        <Route path="/sportsOutdoor" element={<SportsOutdoor />} />
-        <Route path="/babysToys" element={<BabysToys />} />
-        <Route path="/groceriesPets" element={<GroceriesPets />} />
-        <Route path="/healthBeauty" element={<HealthBeauty />} />
-        <Route path="/bestSelling" element={<BestSelling />} />
-        {/* <Route path="/cancellation" element={<Cancellation />} /> */}
         <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/vehicle" element={<Vehicle />} />
+        <Route path="/bestSelling" element={<BestSelling />} />
 
         {/* Auth routes (redirect if logged in) */}
         <Route
@@ -133,6 +120,50 @@ function App() {
         <Route
           path="/cancellation"
           element={currentUser ? <Cancellation /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/productDetail"
+          element={currentUser ? <ProductDetail /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/womansFashion"
+          element={currentUser ? <WomansFashion /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/mensFashion"
+          element={currentUser ? <MensFashion /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/jewelery"
+          element={currentUser ? <Jewelery /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/electronics"
+          element={currentUser ? <Electronics /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/homeLifestyle"
+          element={currentUser ? <HomeLifestyle /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/sportsOutdoor"
+          element={currentUser ? <SportsOutdoor /> : <Navigate to="/login" />}
+        />
+         <Route
+          path="/babysToys"
+          element={currentUser ? <BabysToys /> : <Navigate to="/login" />}
+        />
+         <Route
+          path="/groceriesPets"
+          element={currentUser ? <GroceriesPets /> : <Navigate to="/login" />}
+        />
+         <Route
+          path="/healthBeauty"
+          element={currentUser ? <HealthBeauty /> : <Navigate to="/login" />}
+        />
+         <Route
+          path="/vehicle"
+          element={currentUser ? <Vehicle /> : <Navigate to="/login" />}
         />
       </Routes>
       <Footer />
