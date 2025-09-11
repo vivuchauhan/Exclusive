@@ -107,7 +107,7 @@ function Wishlist() {
                   {wishlist && wishlist.map((item) => (
                   <div className='item CardStyle my-lg-4 mb-4 wishlistIconCont'  key={item.id}>
                     <div className='discount'>
-                      <small> -{Math.ceil(item.discountPercentage)}%</small>
+                      <small> -{Math.ceil(item.discountPercentage)}% OFF</small>
                     </div>
                     <Link className='' to="/productDetail" onClick={() => handleProductDetail(item)}>
                       <div className='card-img-wraper'>
@@ -119,7 +119,7 @@ function Wishlist() {
                         {item.title}
                       </p>
                       <p className="d-flex mt-2 justify-content-between align-items-center p-0 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '600' }}>
-                        <span className="text-success mb-0 text-end h5"> ₹{item.price}</span>
+                        <span className="text-success mb-0 text-end h5"> ₹{(item.price * 83).toFixed(2)}</span>
                       </p>
                       {/* <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
                         Rating: <span style={{color:"#fc530a"}}>{item.rating}</span>
@@ -188,7 +188,7 @@ function Wishlist() {
                     {filteredProducts.map((item) => (
                       <div className='item CardStyle my-lg-4 mb-4 wishlistIconCont'  key={item.id}>
                         <div className='discount'>
-                          <small> -{Math.ceil(item.discountPercentage)}%</small>
+                          <small> -{Math.ceil(item.discountPercentage)}% OFF</small>
                         </div>
                         <Link className='' to="/productDetail" onClick={() => handleProductDetail(item)}>
                           <div className='card-img-wraper'>
@@ -200,7 +200,7 @@ function Wishlist() {
                             {item.title}
                           </p>
                           <p className="d-flex mt-2 justify-content-between align-items-center p-0 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '600' }}>
-                            <span className="text-success mb-0 text-end h5"> ₹{item.price}</span>
+                            <span className="text-success mb-0 text-end h5"> ₹{(item.price * 83).toFixed(2)}</span>
                             <small className="text-success">in stock <span className='text-danger'>({item.stock})</span></small>
                           </p>
                           {/* <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>

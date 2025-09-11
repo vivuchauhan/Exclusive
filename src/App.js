@@ -33,6 +33,7 @@ import BestSelling from "./components/bestSelling";
 import Cancellation from "./components/cancellationOrder";
 import { Portfolio } from "./components/portfolio";
 import Vehicle from "./components/vehicle";
+import NotFound from "./components/NotFound";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -85,6 +86,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/bestSelling" element={<BestSelling />} />
+        <Route path="*" element={<NotFound />} />
 
         {/* Auth routes (redirect if logged in) */}
         <Route

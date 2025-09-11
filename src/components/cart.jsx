@@ -31,7 +31,7 @@ function Cart() {
     if (cart.length === 0) {
       setDiscount(0);
     } else {
-      const randomDiscount = Math.floor(Math.random() * 90) + 10;
+      const randomDiscount = Math.floor(Math.random() * 200) + 10;
       setDiscount(randomDiscount);
     }
   };
@@ -94,7 +94,7 @@ function Cart() {
                               >
                                 <div style={{display:"flex", flexDirection:"column"}}>
                                   <span>Price</span>
-                                  <span className='text-success mt-lg-2'>₹ {item.price}</span>
+                                  <span className='text-success mt-lg-2'>₹ {(item.price * 83).toFixed(2)}</span>
                                 </div>
                               </p>
                               <p
@@ -145,10 +145,10 @@ function Cart() {
                 <div className='px-3 AmountCarTStyle'>
                   <h4>Cart Total</h4>
                   <p>Quantity: {cart.reduce((total, item) => total + item.quantity, 0)}</p>
-                  <p style={{borderBottom:"1px solid #D6D5D5", fontWeight:"600"}} className='pb-3'>Subtotal: ₹{totalAmount.toFixed(2)}</p>
+                  <p style={{borderBottom:"1px solid #D6D5D5", fontWeight:"600"}} className='pb-3'>Subtotal: ₹{(totalAmount * 83).toFixed(2)}</p>
                   <p style={{fontWeight:"600", color:"#777c87", fontSize:"17px"}}>Discount: ₹{discount}</p>
                   <p style={{borderBottom:"1px solid #D6D5D5"}} className='pb-3'>Shipping: <span className='ps-2 text-success' style={{font:"14px", fontWeight:"400"}}>Free</span></p>
-                  <h5>Total: ₹{(totalAmount - discount).toFixed(2)} /-</h5>
+                  <h5>Total: ₹{((totalAmount * 83) - discount).toFixed(2)} /-</h5>
                   {cart.length !== 0 ? (
                     <Link to="/checkout" className='text-center mt-3'>
                       <button

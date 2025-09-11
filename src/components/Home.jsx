@@ -277,7 +277,7 @@ function Home() {
                             {item.title}
                           </p>
                           <p className="d-flex mt-2 justify-content-between align-items-center p-0 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '600' }}>
-                            <span className="text-success mb-0 text-end h5"> ₹{item.price}</span>
+                            <span className="text-success mb-0 text-end h5"> ₹{(item.price * 83).toFixed(2)}</span>
                             <small className="text-success">in stock <span className='text-danger'>({item.stock})</span></small>
                           </p>
                           {/* <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
@@ -362,7 +362,7 @@ function Home() {
                                 {item.title}
                               </p>
                               <p className="d-flex mt-2 justify-content-between align-items-center p-0 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '600' }}>
-                                <span className="text-success mb-0 text-end h5"> ₹{item.price}</span>
+                                <span className="text-success mb-0 text-end h5"> ₹{(item.price * 83).toFixed(2)}</span>
                                 <small className="text-success">in stock <span className='text-danger'>({item.stock})</span></small>
                               </p>
                               {/* <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
@@ -445,7 +445,7 @@ function Home() {
                                 {item.title}
                               </p>
                               <p className="d-flex mt-2 justify-content-between align-items-center p-0 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '600' }}>
-                                <span className="text-success mb-0 text-end h5"> ₹{item.price}</span>
+                                <span className="text-success mb-0 text-end h5"> ₹{(item.price * 83).toFixed(2)}</span>
                                 <small className="text-success">in stock <span className='text-danger'>({item.stock})</span></small>
                               </p>
                               {/* <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>

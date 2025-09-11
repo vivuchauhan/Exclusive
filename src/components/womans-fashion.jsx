@@ -95,7 +95,7 @@ function WomansFashion() {
                           {item.title}
                         </p>
                         <p className="text-center p-0 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '600' }}>
-                          <span className="text-success"> ₹{item.price}</span>
+                          <span className="text-success"> ₹{(item.price * 83).toFixed(2)}</span>
                         </p>
                         {/* <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
                           Rating: <span style={{ color: "#fc530a" }}>{item.rating}</span>

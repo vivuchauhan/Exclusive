@@ -107,7 +107,7 @@ function ProductDetail() {
                                 <p className=' pb-2 p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Rating:<span style={{color:"#fc530a", fontWeight:"600"}}>
                                     <span className='bg-success text-light px-2 rounded me-2 ms-2 py-1'>{currentItem.rating} ★</span>
                                 </span></p>
-                                <p className=' p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Price: <span className='text-success h5'>₹{currentItem.price}</span></p>
+                                <p className=' p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Price: <span className='text-success h5'>₹{(currentItem.price * 83).toFixed(2)}</span></p>
                                 <p className=' p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Category: <span style={{color:"#908e91"}}>{currentItem.category}</span></p>
                                 <p className=' p-1 m-0' style={DiscriptionStyle}><span style={{ fontSize: "15px", fontWeight: "600" }}>Description:</span> {currentItem.description}</p>
                             </div>
@@ -213,7 +213,7 @@ function ProductDetail() {
                                         {item.category}
                                         </p>
                                         <p className="text-center p-0 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '600' }}>
-                                        Price: <span className="text-success"> ₹{item.price}</span>
+                                        Price: <span className="text-success"> ₹{(item.price * 83).toFixed(2)}</span>
                                         </p>
                                         <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
                                         Rating: <span style={{color:"#fc530a"}}>{item.rating}</span>
