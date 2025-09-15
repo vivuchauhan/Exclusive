@@ -108,7 +108,7 @@ function Home() {
         setSearchResults([]);
     } else {
         const filteredProducts = products.filter((product) =>
-            product.title.toLowerCase().includes(inputValue.toLowerCase())
+            product.title.toLowerCase().startsWith(inputValue.toLowerCase())
         );
         const truncatedResults = filteredProducts.map((product) => ({
           ...product,
