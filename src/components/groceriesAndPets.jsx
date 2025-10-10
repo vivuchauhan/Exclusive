@@ -94,7 +94,7 @@ function GroceriesPets() {
                     <div className='col-md-4 col-sm-6 col-12 mb-4 WomansCardStyle' key={item.id}>
                       <Link to="/productDetail" onClick={() => handleProductDetail(item)} style={{ overflow: "hidden", textDecoration: "none" }}>
                         <div style={{ overflow: "hidden" }}>
-                          <img className='HomeCardImg' src={item.thumbnail} alt={item.title} />
+                          <img className='HomeCardImg' src={item.thumbnail} alt={item.title} loading="lazy"/>
                         </div>
                       </Link>
                       <div className="mt-2 text-center">

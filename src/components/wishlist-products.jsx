@@ -77,7 +77,7 @@ function Wishlist() {
           <div className='container d-flex justify-content-center'>
             {localWishlist && localWishlist.length === 0 ? (
               <div className='pt-4'>
-                <img src={WishlistImg} alt='wishlistImg' className='img-fluid'/>
+                <img src={WishlistImg} alt='wishlistImg' className='img-fluid' loading="lazy"/>
               </div>
             ) : (
               <div className="container">
@@ -111,7 +111,7 @@ function Wishlist() {
                     </div>
                     <Link className='' to="/productDetail" onClick={() => handleProductDetail(item)}>
                       <div className='card-img-wraper'>
-                        <img className='HomeCardImg img-fluid' src={item.thumbnail} alt={item.title} />
+                        <img className='HomeCardImg img-fluid' src={item.thumbnail} alt={item.title} loading="lazy"/>
                       </div>
                     </Link>
                     <div className="mt-2 px-2">
@@ -192,7 +192,7 @@ function Wishlist() {
                         </div>
                         <Link className='' to="/productDetail" onClick={() => handleProductDetail(item)}>
                           <div className='card-img-wraper'>
-                            <img className='HomeCardImg img-fluid' src={item.thumbnail} alt={item.title} />
+                            <img className='HomeCardImg img-fluid' src={item.thumbnail} alt={item.title} loading="lazy"/>
                           </div>
                         </Link>
                         <div className="mt-2 px-2">

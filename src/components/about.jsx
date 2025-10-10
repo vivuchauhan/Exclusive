@@ -46,29 +46,29 @@ function About () {
                   </p>
                 </div>
                 <div className='col-lg-5 col-12'>
-                  <img className='AboutImg' src={aboutImage1} alt="Our Story" style={imageStyle} />
+                  <img className='AboutImg' src={aboutImage1} alt="Our Story" style={imageStyle} loading="lazy"/>
                 </div>
               </div>
             </section>
             <section className='py-3'>
               <div className='aboutSecondCont col-12'>
                 <div className='col-lg-3 col-12 text-center'>
-                  <img src={aboutSecContImg1} className='img-fluid' alt='..' />
+                  <img src={aboutSecContImg1} className='img-fluid' alt='..' loading="lazy"/>
                   <span>10.5k</span>
                   <p>Sallers active our site</p>
                 </div>
                 <div className='text-bg-danger col-lg-3 col-12 text-center'>
-                  <img src={aboutSecContImg2} className='img-fluid' alt='..' />
+                  <img src={aboutSecContImg2} className='img-fluid' alt='..' loading="lazy"/>
                   <span>33k</span>
                   <p>Mopnthly Produduct Sale</p>
                 </div>
                 <div className='col-lg-3 col-12 text-center'>
-                  <img src={aboutSecContImg3} className='img-fluid' alt='..' />
+                  <img src={aboutSecContImg3} className='img-fluid' alt='..' loading="lazy"/>
                   <span>45.5k</span>
                   <p>Customer active in our site</p>
                 </div>
                 <div className='col-lg-3 col-12 text-center'>
-                  <img src={aboutSecContImg4} className='img-fluid' alt='..' />
+                  <img src={aboutSecContImg4} className='img-fluid' alt='..' loading="lazy"/>
                   <span>25k</span>
                   <p>Anual gross sale in our site</p>
                 </div>
@@ -77,17 +77,17 @@ function About () {
             <section className='py-3' style={sectionStyle}>
               <div className='d-lg-flex gap-lg-4 col-12 justify-content-center secondlastCont'>
                 <div className='text-center col-lg-4 col-12' style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', paddingBottom: '20px', overflow:"hidden" }}>
-                  <img className='AboutImg' src={aboutImage3} alt="Our Team"  />
+                  <img className='AboutImg' src={aboutImage3} alt="Our Team" loading="lazy" />
                   <h4 className='mt-3'>Name 1</h4>
                   <p className='mt-0 mb-0'>Founder & Chairman</p>
                 </div>
                 <div className='text-center col-lg-4 col-12 mt-5 m-md-0' style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', paddingBottom: '20px', overflow:"hidden" }}>
-                  <img className='AboutImg' src={aboutImage4} alt="Our Team"  />
+                  <img className='AboutImg' src={aboutImage4} alt="Our Team"  loading="lazy"/>
                   <h4 className='mt-3'>Name 2</h4>
                   <p className='mb-0'>Managing Director</p>
                 </div>
                 <div className='text-center col-lg-4 col-12 mt-5 m-md-0' style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', paddingBottom: '20px', overflow:"hidden" }}>
-                  <img className='AboutImg' src={aboutImage5} alt="Our Team"  />
+                  <img className='AboutImg' src={aboutImage5} alt="Our Team"  loading="lazy"/>
                   <h4 className='mt-3'>Name 3</h4>
                   <p className='mt-0 mb-0'>Product Designer </p>
                 </div>
@@ -96,17 +96,17 @@ function About () {
             <section className='py-3'>
               <div className='aboutLastCont col-12'>
                 <div className='text-center col-lg-4 col-12 mt-5 m-md-0'>
-                  <img src={aboutLastContImg1} className='img-fluid' alt='..' />
+                  <img src={aboutLastContImg1} className='img-fluid' alt='..' loading="lazy"/>
                   <span>FREE AND FAST DELIVERY</span>
                   <p>Free delivery for all orders over  ₹350</p>
                 </div>
                 <div className='text-center col-lg-4 col-12 mt-5 m-md-0'>
-                  <img src={aboutLastContImg2} className='img-fluid' alt='..' />
+                  <img src={aboutLastContImg2} className='img-fluid' alt='..' loading="lazy"/>
                   <span>24/7 CUSTOMER SERVICE</span>
                   <p>Friendly 24/7 customer support</p>
                 </div>
                 <div className='text-center col-lg-4 col-12 mt-5 m-md-0'>
-                  <img src={aboutLastContImg3} className='img-fluid' alt='..' />
+                  <img src={aboutLastContImg3} className='img-fluid' alt='..' loading="lazy"/>
                   <span>MONEY BACK GUARANTEE</span>
                   <p>We reurn money within 30 days</p>
                 </div>

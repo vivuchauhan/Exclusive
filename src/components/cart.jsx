@@ -69,6 +69,7 @@ function Cart() {
                             src={item.thumbnail}
                             style={{ width: '100%', height: 'auto' }}
                             alt={item.title}
+                            loading="lazy"
                           />
                         </div>
                         <div style={{display:"flex", gap:"10%", width:"90%"}}>

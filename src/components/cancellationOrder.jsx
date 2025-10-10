@@ -60,7 +60,7 @@ function Cancellation() {
                       <div className='col-lg-7 col-12 mt-lg-5'>
                         {order.productDetails.map((product, prodIndex) => (
                           <div className='gap-4 my-3' key={prodIndex} style={{ fontWeight: "600", display: "flex", alignItems: "center" }}>
-                            <div className='OrderPgTitle' ><img src={product.thumbnail} alt='..' className='img-fluid' style={{ width: "25px" }} /><i className='ms-2'  style={CancelOrdersStyle}>{truncateTitle(product.title)}</i></div>
+                            <div className='OrderPgTitle' ><img src={product.thumbnail} alt='..' className='img-fluid' style={{ width: "25px" }} loading="lazy"/><i className='ms-2'  style={CancelOrdersStyle}>{truncateTitle(product.title)}</i></div>
                             <p className='' style={{ fontWeight: "600",color:"#7f838a" }}>₹{product.price}</p>
                           </div>
                         ))}

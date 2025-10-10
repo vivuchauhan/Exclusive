@@ -100,7 +100,7 @@ function ProductDetail() {
             <div className="container-fluid pb-5">
                 <div className='container'>
                     <div className='row ProductDetailCardStyle col-12 py-5 pb-5' key={currentItem.id}>
-                        <div className='col-md-6 d-flex justify-content-center' style={{background:"#F5F5F5", alignItems:"center"}}><img src={currentItem.thumbnail} style={{  }} alt='thumnil img' className='py-5 productDetailImg'/></div>
+                        <div className='col-md-6 d-flex justify-content-center' style={{background:"#F5F5F5", alignItems:"center"}}><img src={currentItem.thumbnail} style={{  }} alt='thumnil img' className='py-5 productDetailImg' loading="lazy"/></div>
                         <div className='col-md-6 ps-lg-5  '>
                             <div className=''>
                                 <p className=' p-1 m-0' style={{ fontSize: "20px", fontWeight: "600" }}> {currentItem.title}</p>
@@ -132,20 +132,20 @@ function ProductDetail() {
                                 <button size="small" style={{ fontSize: "15px", color: "white", background:"#DB4444" }} className='border-0 px-3 py-1' onClick={() => handleAddToCart(currentItem)}><Link to="/cart" class="text-decoration-none text-light fw-semibold">Buy Now</Link></button>
                                 <button size="small" style={{ fontSize: "15px", color: "white", background:"#000"  }} className='border-0 px-3 py-1' onClick={() => handleAddToCart(currentItem)}>Add To Cart</button>
                                 <button className='Btn wishlistBtn' onClick={() => handleAddToWishlist(currentItem)}>
-                                 <img className='wishlistIcon' src={wishlistState.imageSrc} alt='imgWishlist' />
+                                 <img className='wishlistIcon' src={wishlistState.imageSrc} alt='imgWishlist' loading="lazy"/>
                                 </button>
                             </div>
                             
                             <div>
                                 <div className='d-flex mt-3' style={{border:"1px solid #7D8184", padding:"10px 20px"}}>
-                                <img src={ProductDImg1} alt='...' className='img-fluid' style={{width:"30px", height:"30px"}}/>
+                                <img src={ProductDImg1} alt='...' className='img-fluid' style={{width:"30px", height:"30px"}} loading="lazy"/>
                                 <div className='ps-3'>
                                     <p className='m-0' style={{fontSize:"16px", fontWeight:"600"}}>Free Delivery</p>
                                     <a href='' className='text-dark' style={{fontSize:"14px", fontWeight:"400"}}>Enter your postal code for Delivery Availability</a>
                                 </div>
                                 </div>
                                 <div className='d-flex mt-0' style={{border:"1px solid #7D8184", borderTop:"none", padding:"10px 20px"}}> 
-                                <img src={ProductDImg2} alt='...' className='img-fluid' style={{width:"30px", height:"30px"}}/>
+                                <img src={ProductDImg2} alt='...' className='img-fluid' style={{width:"30px", height:"30px"}} loading="lazy"/>
                                 <div className='ps-3'>
                                     <p className='m-0' style={{fontSize:"16px", fontWeight:"600"}}>Return Delivery</p>
                                     <a href='' style={{fontSize:"14px", fontWeight:"400"}} className='text-dark'>Free 30 Days Delivery Returns. Details</a>
@@ -202,7 +202,7 @@ function ProductDetail() {
                                     <div className='item CardStyle my-4'  key={item.id}>
                                     <Link to="/productDetail" onClick={() => handleProductDetail(item)}>
                                         <div className='text-center ps-2'>
-                                        <img className='HomeCardImg' src={item.thumbnail} style={{ width: '140px', height: '120px', cursor: 'pointer' }} alt={item.title} />
+                                        <img className='HomeCardImg' src={item.thumbnail} style={{ width: '140px', height: '120px', cursor: 'pointer' }} alt={item.title} loading="lazy"/>
                                         </div>
                                     </Link>
                                     <div className="mt-2">

@@ -45,7 +45,7 @@ function Header({ onLogout , user }){
             <nav className="navbar navbar-expand-lg" style={{borderBottom:"1px solid #D6D5D5"}}>
                 <div className="container">
                     <Link to="/" className="navbar-brand">
-                        <img src={LogoImg} alt='' className='img-fluid Logo'/>
+                        <img src={LogoImg} alt='' className='img-fluid Logo' loading="lazy"/>
                         <h1 className='pt-2'>Exclusive</h1>
                     </Link>
                     <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">

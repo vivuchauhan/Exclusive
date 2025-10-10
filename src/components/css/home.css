@@ -96,12 +96,20 @@
     z-index: 1002;
     height:140px;
 }
+.searchResultsList li:hover{
+    background-color: #f8f3f3;
+}
+.searchResultsList small:hover{
+    background-color: #f8f3f3 !important;
+}
 .searchResultsList {
-  width: 100%;
-  height: 130px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #ff4726e3 #f1f1f1;
+    width: 100%;
+    height: 282px;
+    overflow-y: auto;
+    position: absolute;
+    scrollbar-width: thin;
+    scrollbar-color: #ff4726e3 #f1f1f1;
+    z-index: 2;
 }
 .searchResultsList .results:hover{
     color: #ff6b02 !important;
@@ -983,7 +991,10 @@
 
     /* search container */
     .searchCont2{
-        width:25%;
+        width:40%;
+    }
+    .searchCont2 input::placeholder{
+        color: #afacac;
     }
     .searchResultsListCont{
         height:115px;

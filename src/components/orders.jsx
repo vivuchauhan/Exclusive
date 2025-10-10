@@ -61,7 +61,7 @@ function Orders() {
           <h3 className='mt-3 ps-2'>Your Orders</h3>
           {Myorders.length === 0 ? (
             <div className='text-center text-white'>
-              <img src='https://static.vecteezy.com/system/resources/thumbnails/014/814/239/small/no-order-a-flat-rounded-icon-is-up-for-premium-use-vector.jpg' alt='icons' className='img-fluid' />
+              <img src='https://static.vecteezy.com/system/resources/thumbnails/014/814/239/small/no-order-a-flat-rounded-icon-is-up-for-premium-use-vector.jpg' alt='icons' className='img-fluid' loading="lazy"/>
             </div>
           ) : (
             <div className='row'>
@@ -87,7 +87,7 @@ function Orders() {
                     <div className='col-lg-7 col-12 mt-lg-5'>
                       {order.productDetails.map((product, prodIndex) => (
                         <div className='gap-4 my-3' key={prodIndex} style={{ fontWeight: "600", display: "flex", alignItems: "center" }}>
-                          <div className='OrderPgTitle' ><img src={product.thumbnail} alt='..' className='img-fluid' style={{ width: "25px" }} /><i className='ms-2' style={OrdersStyle}>{truncateTitle(product.title)}</i></div>
+                          <div className='OrderPgTitle' ><img src={product.thumbnail} alt='..' loading="lazy" className='img-fluid' style={{ width: "25px" }} /><i className='ms-2' style={OrdersStyle}>{truncateTitle(product.title)}</i></div>
                           <p className='' style={{ fontWeight: "600", color: "green" }}>₹{product.price}</p>
                         </div>
                       ))}

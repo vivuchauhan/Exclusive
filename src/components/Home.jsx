@@ -98,25 +98,33 @@ function Home() {
   const bestSellingProducts = products.filter((item) => item.rating >= 4.5);
   const FlashSale = products.filter((item) => item.rating <= 3);
 
-
-
   const handleSearchInputChange = (e) => {
-    const inputValue = e.target.value;
-    setSearchInput(inputValue);
+  const inputValue = e.target.value;
+  setSearchInput(inputValue);
 
-    if (inputValue.trim() === '') {
-        setSearchResults([]);
-    } else {
-        const filteredProducts = products.filter((product) =>
-            product.title.toLowerCase().startsWith(inputValue.toLowerCase())
-        );
-        const truncatedResults = filteredProducts.map((product) => ({
-          ...product,
-          title: product.title.length > 30 ? `${product.title.slice(0, 30)}...` : product.title
-      }));
-        setSearchResults(truncatedResults);
-    }
-   };
+  if (inputValue.trim() === '') {
+    setSearchResults([]);
+    return;
+  }
+
+  const lowerInput = inputValue.toLowerCase();
+
+  const filteredProducts = products.filter((product) => {
+    // Make sure to use the correct key name: "description" not "descripton"
+    const titleMatch = product.title?.toLowerCase().includes(lowerInput);
+    const descMatch = product.description?.toLowerCase().includes(lowerInput);
+    const categoryMatch = product.category?.toLowerCase().includes(lowerInput);
+    return titleMatch || descMatch || categoryMatch;
+  });
+
+  const truncatedResults = filteredProducts.map((product) => ({
+    ...product,
+    title: product.title.length > 30 ? `${product.title.slice(0, 30)}...` : product.title,
+  }));
+
+  setSearchResults(truncatedResults.slice(0, 10));
+};
+
 
   const handleSearchResultClick = (productId) => {
     const product = products.find((item) => item.id === productId);
@@ -162,21 +170,21 @@ function Home() {
                   >
                     {/* Slide 1 */}
                     <div className="item">
-                      <img src={CaroselImg1} className="d-block w-100" alt="..." />
+                      <img src={CaroselImg1} className="d-block w-100" alt="..." loading="lazy" />
                     </div>
 
                     {/* Slide 2 */}
                     <div className="item">
-                      <img src={CaroselImg2} className="d-block w-100" alt="..." />
+                      <img src={CaroselImg2} className="d-block w-100" alt="..." loading="lazy"/>
                     </div>
 
                     {/* Slide 3 */}
                     <div className="item">
-                      <img src={CaroselImg3} className="d-block w-100" alt="..." />
+                      <img src={CaroselImg3} className="d-block w-100" alt="..." loading="lazy"/>
                     </div>
                     {/* Slide 4 */}
                     <div className="item">
-                      <img src={CaroselImg4} className="d-block w-100" alt="..." />
+                      <img src={CaroselImg4} className="d-block w-100" alt="..." loading="lazy"/>
                     </div>
                   </OwlCarousel>
                 </div>
@@ -193,7 +201,7 @@ function Home() {
                     <div className="d-flex justify-content-center searchInputCont me-lg-5 mt-4 ps-0">
                       <input
                         type="text"
-                        placeholder="What are you looking for?"
+                        placeholder="Search products by name, description or category.."
                         value={searchInput}
                         onChange={handleSearchInputChange}
                         className='w-100 bg-transparent form-control'
@@ -206,18 +214,37 @@ function Home() {
                       </div>
                     </div>
                     {/* Search results */}
-                    {searchResults.length > 0 && (<div className="container searchResultsListCont px-0">
-                      <ul className="searchResultsList bg-light border px-2 list-unstyled">
-                        {searchResults.map((item) => (
-                          <li key={item.id} className='' style={{cursor:"pointer"}} onClick={() => handleProductDetail(item)}>
-                            <Link className='results' to="./productDetail" onClick={() => handleSearchResultClick(item.id)}>
-                              {item.title}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>)}
-                  </div>
+                    {/* Search results */}
+                      {searchInput.length > 0 && (
+                        <div className="container searchResultsListCont px-0">
+                          {searchResults.length > 0 ? (
+                            <ul className="searchResultsList bg-light border list-unstyled">
+                              {searchResults.map((item) => (
+                                <li
+                                  className='mb-1 pb-1 px-2'
+                                  key={item.id}
+                                  style={{ cursor: "pointer", borderBottom:"1px solid #d7d5d5ff" }}
+                                  onClick={() => handleProductDetail(item)}
+                                >
+                                  <Link
+                                    className="results"
+                                    to="./productDetail"
+                                    onClick={() => handleSearchResultClick(item.id)}
+                                  >
+                                    <p className='p-0 m-0'>{item.title}</p>
+                                    <small className='text-success bg-white p-0 m-0'>{item.category} • ₹{Math.floor(item.price*83)}</small>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <ul className="searchResultsList bg-light border px-2 list-unstyled">
+                              <li>No products found.</li>
+                            </ul>
+                          )}
+                        </div>
+                      )}
+                    </div>
                 </div>
                 <div className='d-flex flashSaleCont'>
                  <div className='d-flex  align-items-end'>
@@ -269,7 +296,7 @@ function Home() {
                         </button> */}
                         <Link className='' to="/productDetail" onClick={() => handleProductDetail(item)}>
                           <div className='card-img-wraper'>
-                            <img className='HomeCardImg img-fluid' src={item.thumbnail} alt={item.title} />
+                            <img className='HomeCardImg img-fluid' src={item.thumbnail} alt={item.title} loading="lazy"/>
                           </div>
                         </Link>
                         <div className="mt-2 px-2">
@@ -354,7 +381,7 @@ function Home() {
                             </div>
                             <Link className='' to="/productDetail" onClick={() => handleProductDetail(item)}>
                               <div className='card-img-wraper'>
-                                <img className='HomeCardImg img-fluid' src={item.thumbnail} alt={item.title} />
+                                <img className='HomeCardImg img-fluid' src={item.thumbnail} alt={item.title} loading="lazy"/>
                               </div>
                             </Link>
                             <div className="mt-2 px-2">
@@ -395,7 +422,7 @@ function Home() {
           {/* banner content */}
           <div className='container-fluid  my-5 p-0'>
             <div className='container p-0'>
-              <img src={BannerImg1} alt='..' className='img-fluid HomeBannerImg'/>
+              <img src={BannerImg1} alt='..' className='img-fluid HomeBannerImg' loading="lazy"/>
             </div>
           </div>
           {/* Explore Our Products */}
@@ -437,7 +464,7 @@ function Home() {
                             </div>
                             <Link className='' to="/productDetail" onClick={() => handleProductDetail(item)}>
                               <div className='card-img-wraper'>
-                                <img className='HomeCardImg img-fluid' src={item.thumbnail} alt={item.title} />
+                                <img className='HomeCardImg img-fluid' src={item.thumbnail} alt={item.title} loading="lazy"/>
                               </div>
                             </Link>
                             <div className="mt-2 px-2">
@@ -481,17 +508,17 @@ function Home() {
               <div className='row py-5'>
                 <div className='homeLastCont d-flex flex-column flex-md-row justify-content-center col-12'>
                   <div className='col-md-4 col-12 d-flex align-items-center justify-content-center'>
-                    <img src={aboutLastContImg1} className='img-fluid' alt='..' />
+                    <img src={aboutLastContImg1} className='img-fluid' alt='..' loading="lazy"/>
                     <span>FREE AND FAST DELIVERY</span>
                     <p>Free delivery for all orders over  ₹350</p>
                   </div>
                   <div className='col-md-4 col-12 d-flex align-items-center justify-content-center'>
-                    <img src={aboutLastContImg2} className='img-fluid' alt='..' />
+                    <img src={aboutLastContImg2} className='img-fluid' alt='..' loading="lazy"/>
                     <span>24/7 CUSTOMER SERVICE</span>
                     <p>Friendly 24/7 customer support</p>
                   </div>
                   <div className='col-md-4 col-12 d-flex align-items-center justify-content-center'>
-                    <img src={aboutLastContImg3} className='img-fluid' alt='..' />
+                    <img src={aboutLastContImg3} className='img-fluid' alt='..' loading="lazy"/>
                     <span>MONEY BACK GUARANTEE</span>
                     <p>We reurn money within 30 days</p>
                   </div>
