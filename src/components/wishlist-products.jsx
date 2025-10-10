@@ -52,6 +52,11 @@ function Wishlist() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
+  useEffect(() => {
     const offsets = {};
     products.forEach(item => {
       offsets[item.id] = Math.floor(Math.random() * 200); // 0–200 random

@@ -40,6 +40,11 @@ function ProductDetail() {
     const products = useSelector((state) => state.product.product);
     const product = useSelector((state) => state.product.productDetails);
 
+    useEffect(() => {
+       window.scrollTo(0, 0);
+    }, []);
+
+
 
     const [wishlist] = useState(
         JSON.parse(localStorage.getItem('wishlist')) || []

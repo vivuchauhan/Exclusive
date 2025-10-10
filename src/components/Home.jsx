@@ -61,6 +61,11 @@ function Home() {
     JSON.parse(localStorage.getItem("wishlist")) || []
   );
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
     useEffect(() => {
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
   }, [wishlist]);

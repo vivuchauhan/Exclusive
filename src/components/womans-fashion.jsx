@@ -57,6 +57,11 @@ function WomansFashion() {
     dispatch(fetchProduct());
   }, [dispatch]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   const handleAddToCart = (product) => dispatch(addToCart(product));
   const handleProductDetail = (productDetails) => dispatch(productDetail(productDetails));
 

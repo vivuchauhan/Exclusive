@@ -29,7 +29,10 @@ function About () {
     height:"auto"
   };
 
-  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   return (
       <>

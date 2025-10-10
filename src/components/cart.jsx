@@ -27,6 +27,11 @@ function Cart() {
     return totalAmount;
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   const TotalDiscount = () => {
     if (cart.length === 0) {
       setDiscount(0);

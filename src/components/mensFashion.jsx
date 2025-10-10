@@ -55,6 +55,9 @@ function MensFashion() {
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const paginatedProducts = mensFashionClothes.slice(indexOfFirstProduct, indexOfLastProduct);
   
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
 
     useEffect(() => {
