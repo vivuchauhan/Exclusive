@@ -1,4 +1,4 @@
-
+import React,{useEffect} from 'react';
 import './css/about.css'; 
 import aboutImage1 from './images/about/Side Image.png';
 import aboutImage3 from './images/about/Frame 874.png';
