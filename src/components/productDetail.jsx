@@ -36,15 +36,13 @@ const clampStyle = {
 
 function ProductDetail() {
     const dispatch = useDispatch();
-     const navigate = useNavigate();
+    const navigate = useNavigate();
     const products = useSelector((state) => state.product.product);
     const product = useSelector((state) => state.product.productDetails);
 
     useEffect(() => {
        window.scrollTo(0, 0);
     }, []);
-
-
 
     const [wishlist] = useState(
         JSON.parse(localStorage.getItem('wishlist')) || []
@@ -55,6 +53,18 @@ function ProductDetail() {
         isAdded: false,
         imageSrc:"data:image/png;base64,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"
     });
+
+
+    const currentItem = product[product.length - 1];
+
+    const [selectedImage, setSelectedImage] = useState(currentItem.thumbnail);
+
+
+    useEffect(() => {
+        setSelectedImage(currentItem.thumbnail);
+    }, [currentItem]);
+
+
     useEffect(() => {
         localStorage.setItem('wishlist', JSON.stringify(wishlist));
     }, [wishlist]);
@@ -71,9 +81,6 @@ function ProductDetail() {
             </>
         );
     }
-    const currentItem = product[product.length - 1];
-
-
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
     };
@@ -105,18 +112,72 @@ function ProductDetail() {
             <div className="container-fluid pb-5">
                 <div className='container'>
                     <div className='row ProductDetailCardStyle col-12 py-5 pb-5' key={currentItem.id}>
-                        <div className='col-md-6 d-flex justify-content-center' style={{background:"#F5F5F5", alignItems:"center"}}><img src={currentItem.thumbnail} style={{  }} alt='thumnil img' className='py-5 productDetailImg' loading="lazy"/></div>
+                        <div className='col-md-6 d-flex justify-content-center flex-column' style={{ background: "#F5F5F5", alignItems: "center" }}>
+                            <div className='large-image'>
+                                <img
+                                    src={selectedImage}
+                                    alt='large product view'
+                                    className='py-5 productDetailImg'
+                                    loading="lazy"
+                                    style={{ maxWidth: "100%", maxHeight: "400px", objectFit: "contain" }}
+                                />
+                            </div>
+
+                            <div className='mini-images d-flex flex-wrap justify-content-center'>
+                                {
+                                    currentItem.images.map((item, ind) => (
+                                        <img
+                                            key={ind}
+                                            src={item}
+                                            alt={`mini-${ind}`}
+                                            onClick={() => setSelectedImage(item)}
+                                            style={{
+                                                width: "100px",
+                                                height: "100px",
+                                                objectFit: "cover",
+                                                cursor: "pointer",
+                                                background: "#fff",
+                                                border: selectedImage === item ? "2px solid #000" : "1px solid #ccc"
+                                            }}
+                                            className='rounded m-1'
+                                            loading="lazy"
+                                        />
+                                    ))
+                                }
+                            </div>
+                        </div>
                         <div className='col-md-6 ps-lg-5  '>
                             <div className=''>
                                 <p className=' p-1 m-0' style={{ fontSize: "20px", fontWeight: "600" }}> {currentItem.title}</p>
-                                <p className=' pb-2 p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Rating:<span style={{color:"#fc530a", fontWeight:"600"}}>
-                                    <span className='bg-success text-light px-2 rounded me-2 ms-2 py-1'>{currentItem.rating} ★</span>
+                                <p className=' pb-2 p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}><span style={{color:"#fc530a", fontWeight:"600"}}>
+                                    <span className='bg-success text-light px-2 rounded me-2 py-1'>{currentItem.rating} ★</span>
                                 </span></p>
-                                <p className=' p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Price: <span className='text-success h5'>₹{(currentItem.price * 83).toFixed(2)}</span></p>
-                                <p className=' p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>Category: <span style={{color:"#908e91"}}>{currentItem.category}</span></p>
-                                <p className=' p-1 m-0' style={DiscriptionStyle}><span style={{ fontSize: "15px", fontWeight: "600" }}>Description:</span> {currentItem.description}</p>
+                                <p className='p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}>
+                                <span className='text-success h5' style={{ marginRight: "10px" }}>
+                                    ₹{((currentItem.price * (1 - currentItem.discountPercentage / 100)) * 83).toFixed(2)}
+                                </span>
+                                <span style={{ textDecoration: "line-through", color: "#888", marginRight: "10px" }}>
+                                    ₹{(currentItem.price * 83).toFixed(2)}
+                                </span>
+                                <span className='text-danger' style={{ fontSize: "14px" }}>
+                                    ({currentItem.discountPercentage}% OFF)
+                                </span>
+                                </p>
+
+                                <p className=' p-1 m-0' style={{ fontSize: "15px", fontWeight: "600" }}><span style={{color:"#908e91"}}>{currentItem.category}</span><span className='ms-2 fw-bold' style={{color:"#908e91"}}>• {currentItem.brand}</span></p>
+                                <p className=' p-1 m-0' style={DiscriptionStyle}><span style={{ fontSize: "15px", fontWeight: "600" }}></span> {currentItem.description}</p>
+                                <div className='d-flex flex-column'>
+                                    {
+                                        currentItem.availabilityStatus === "In Stock" ?  <small style={{color:"#04b13dff"}}>• {currentItem.availabilityStatus}</small> :  <small style={{color:"#9c9494ff"}}>• {currentItem.availabilityStatus}</small>
+                                    }
+                                    {
+                                        currentItem.warrantyInformation === "No warranty" ? <small style={{color:"#9c9494ff"}}>• {currentItem.warrantyInformation}</small> : <small style={{color:"#04b13dff"}}>• {currentItem.warrantyInformation}</small>
+                                    }
+                                    
+                                </div>
                             </div>
-                            <div className='my-3' style={{ display:"flex", gap:"10px", alignItems:"center"}}>
+                            {
+                                currentItem.category === ( "mens-shirts" || "mens-shoes" || "womens-shoes" || "tops" || "womens-dresses" || "skin-care" ) ?  <div className='my-3' style={{ display:"flex", gap:"10px", alignItems:"center"}}>
                                 <span style={{fontSize:"16px", fontWeight:"600"}} className='ms-1'>Size :  </span>
                                 <input type="radio" className="btn-check" name="options-base" id="option5" autocomplete="off" />
                                 <label className="btn" for="option5">S</label>
@@ -132,7 +193,9 @@ function ProductDetail() {
 
                                 <input type="radio" className="btn-check" name="options-base" id="option8" autocomplete="off" disabled/>
                                 <label className="btn" for="option8">XXL</label>
-                            </div>
+                            </div> : null
+                            }
+                           
                             <div className='mt-3 p-1 d-flex gap-2'>
                                 <button size="small" style={{ fontSize: "15px", color: "white", background:"#DB4444" }} className='border-0 px-3 py-1' onClick={() => handleAddToCart(currentItem)}><Link to="/cart" class="text-decoration-none text-light fw-semibold">Buy Now</Link></button>
                                 <button size="small" style={{ fontSize: "15px", color: "white", background:"#000"  }} className='border-0 px-3 py-1' onClick={() => handleAddToCart(currentItem)}>Add To Cart</button>
@@ -146,14 +209,14 @@ function ProductDetail() {
                                 <img src={ProductDImg1} alt='...' className='img-fluid' style={{width:"30px", height:"30px"}} loading="lazy"/>
                                 <div className='ps-3'>
                                     <p className='m-0' style={{fontSize:"16px", fontWeight:"600"}}>Free Delivery</p>
-                                    <a href='' className='text-dark' style={{fontSize:"14px", fontWeight:"400"}}>Enter your postal code for Delivery Availability</a>
+                                    <p className='text-dark text-decoration-none' style={{fontSize:"14px", fontWeight:"400"}}>{currentItem.shippingInformation}</p>
                                 </div>
                                 </div>
                                 <div className='d-flex mt-0' style={{border:"1px solid #7D8184", borderTop:"none", padding:"10px 20px"}}> 
                                 <img src={ProductDImg2} alt='...' className='img-fluid' style={{width:"30px", height:"30px"}} loading="lazy"/>
                                 <div className='ps-3'>
                                     <p className='m-0' style={{fontSize:"16px", fontWeight:"600"}}>Return Delivery</p>
-                                    <a href='' style={{fontSize:"14px", fontWeight:"400"}} className='text-dark'>Free 30 Days Delivery Returns. Details</a>
+                                    <p style={{fontSize:"14px", fontWeight:"400"}} className='text-dark text-decoration-none'>{currentItem.returnPolicy}</p>
                                 </div>
                                 </div>
                             </div>
@@ -164,7 +227,7 @@ function ProductDetail() {
                         {  currentItem.reviews.map((item)=>{
                                 return(
                                 <>
-                                    <div className='col-3 border rounded p-3'>
+                                    <div className='col-lg-3  border rounded p-3'>
                                         <h6>
                                             <span className='bg-success text-light px-2 rounded me-2'>{item.rating} ★</span>
                                             {item.reviewerName}
@@ -207,7 +270,7 @@ function ProductDetail() {
                                     <div className='item CardStyle my-4'  key={item.id}>
                                     <Link to="/productDetail" onClick={() => handleProductDetail(item)}>
                                         <div className='text-center ps-2'>
-                                        <img className='HomeCardImg' src={item.thumbnail} style={{ width: '140px', height: '120px', cursor: 'pointer' }} alt={item.title} loading="lazy"/>
+                                        <img className='HomeCardImg' src={item.thumbnail} style={{ width: '90%', height: 'auto', paddig:"10px", cursor: 'pointer' }} alt={item.title} loading="lazy"/>
                                         </div>
                                     </Link>
                                     <div className="mt-2">
@@ -218,10 +281,10 @@ function ProductDetail() {
                                         {item.category}
                                         </p>
                                         <p className="text-center p-0 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '600' }}>
-                                        Price: <span className="text-success"> ₹{(item.price * 83).toFixed(2)}</span>
+                                        <span className="text-success"> ₹{(item.price * 83).toFixed(2)}</span>
                                         </p>
                                         <p className="text-center pb-2 m-0 homeCardText text-dark" style={{ fontSize: '15px', fontWeight: '400' }}>
-                                        Rating: <span style={{color:"#fc530a"}}>{item.rating}</span>
+                                         <span style={{color:"#fc530a"}}>{item.rating}</span>
                                         </p>
                                     </div>
                                     <div className="text-center ">
