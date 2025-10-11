@@ -125,7 +125,7 @@ function Signup() {
                     {user.name.length > 1 ? user.name.substring(0, 1) : user.name}
                   </div>
                   <div className="box ps-2">
-                      <strong>{user.name}</strong> <br />
+                      <strong className="text-capitalize">{user.name}</strong> <br />
                       <small>
                         Joined:{" "}
                         {user.createdAt?.toDate
