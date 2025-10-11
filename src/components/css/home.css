@@ -471,7 +471,8 @@
     /* card css */
     .HomeCardImg {
         width:100% !important;
-        height: 100px;
+        height: auto;
+        padding: 20px;
     }
     .homeCardText{
         font-size: 14px !important;
@@ -660,7 +661,8 @@
     /* card css */
     .HomeCardImg {
         width:100% !important;
-        height: 100px;
+        height: auto;
+        padding: 20px;
     }
     .homeCardText{
         font-size: 14px !important;
@@ -859,7 +861,8 @@
     /* card css */
     .HomeCardImg {
         width:100% !important;
-        height: 100px;
+        height: auto;
+        padding: 20px;
     }
     .homeCardText{
         font-size: 14px !important;
@@ -1059,7 +1062,8 @@
     /* card css */
     .HomeCardImg {
         width:100% !important;
-        height: 100px;
+        height: auto;
+        padding: 20px;
     }
     .homeCardText{
         font-size: 14px !important;
