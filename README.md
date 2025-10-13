@@ -16,32 +16,6 @@ The app uses **DummyJSON API** for product data and **Firebase** for user authen
 
 ---
 
-Exclusive/
-│
-├── public/
-├── src/
-│   ├── components/
-│   │   ├── assets/
-│   │   ├── css/
-│   │   ├── images/
-│   │   ├── all components
-│   │   ├── ....
-│   │
-│   ├── redux/
-│   │   ├── action/
-│   │   ├── reducers/
-│   │   ├── store
-│   │
-│   ├── firebase/
-│   ├── App.js
-│   ├── index.js
-│
-├── package.json
-├── README.md
-└── .gitignore
-
----
-
 ## 🖥️ Tech Stack
 - **Frontend:** React.js, Redux, React Router, Bootstrap  
 - **Backend / Database:** Firebase  
@@ -67,6 +41,31 @@ Exclusive/
 Follow the steps below to run **Exclusive** locally 👇
 
 ```bash
+Exclusive/
+│
+├── public/
+│
+├── src/
+│   ├── components/
+│   │   ├── assets/
+│   │   ├── css/
+│   │   ├── images/
+│   │   ├── all components
+│   │   ├── ....
+│   │
+│   ├── redux/
+│   │   ├── action/
+│   │   ├── reducers/
+│   │   ├── store/
+│   │
+│   ├── firebase/
+│   ├── App.js
+│   ├── index.js
+│
+├── package.json
+├── README.md
+└── .gitignore
+
 # Clone this repository
 git clone https://github.com/vivuchauhan/Exclusive.git
 
