@@ -1,0 +1,394 @@
+/* General Styles */
+.portfolio-wrapper {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.section-title {
+  font-weight: 700;
+  color: #333;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-buttons .btn {
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+/* About Section */
+.profile-img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 5px solid #fff;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Skills Section */
+.skill-item {
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+  background-color: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.bg-purple {
+  background-color: #6f42c1 !important;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  transition: width 1.5s ease;
+}
+
+/* Projects Section */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.project-img {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.1);
+}
+
+/* Contact Section */
+.contact-info {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  height: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.social-links a {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-buttons .btn {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+  }
+  
+  .project-card {
+    margin-bottom: 20px;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Experience Timeline Section */
+.experience-section {
+  background: #f8f9fa;
+}
+
+/* Timeline Styles - Desktop */
+.timeline {
+  position: relative;
+  padding: 20px 0;
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .timeline {
+    display: block;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  }
+}
+
+.timeline-item {
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.timeline-item.left {
+  padding-right: 50%;
+}
+
+.timeline-item.right {
+  padding-left: 50%;
+}
+
+.timeline-badge {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  font-size: 1.2rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(102, 126, 234, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+  }
+}
+
+.timeline-panel {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin: 0 40px;
+}
+
+.timeline-item.left .timeline-panel {
+  margin-right: 60px;
+  margin-left: 0;
+}
+
+.timeline-item.right .timeline-panel {
+  margin-left: 60px;
+  margin-right: 0;
+}
+
+.timeline-panel::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.timeline-item.left .timeline-panel::before {
+  right: -15px;
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent white;
+}
+
+.timeline-item.right .timeline-panel::before {
+  left: -15px;
+  border-width: 10px 15px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+.timeline-panel:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.company-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.timeline-body {
+  padding-top: 10px;
+}
+
+.tech-stack {
+  margin-top: 10px;
+}
+
+.tech-stack .badge {
+  font-weight: 500;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  transition: transform 0.2s ease;
+}
+
+.tech-stack .badge:hover {
+  transform: translateY(-2px);
+}
+
+/* Experience Card Styles - Mobile */
+.experience-card {
+  border: none;
+  border-left: 4px solid;
+  border-image: linear-gradient(180deg, #667eea 0%, #764ba2 100%) 1;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.experience-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.experience-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  .timeline {
+    display: none !important;
+  }
+  
+  .experience-card {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .experience-card {
+    display: none;
+  }
+}
+
+/* Animation for timeline items on scroll */
+.timeline-item {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
