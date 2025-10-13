@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# 🛍️ Exclusive – E-commerce Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black)
 
-## Available Scripts
+## 🚀 Live Demo  
+👉 [Click Here to Visit Exclusive](https://evivek.netlify.app/)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🧠 Project Overview
+**Exclusive** is a modern and responsive **E-commerce web application** where users can **browse, add to cart, wishlist, and purchase products**.  
+The app uses **DummyJSON API** for product data and **Firebase** for user authentication and data storage.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Exclusive/
+│
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── assets/
+│   │   ├── css/
+│   │   ├── images/
+│   │   ├── all components
+│   │   ├── ....
+│   │
+│   ├── redux/
+│   │   ├── action/
+│   │   ├── reducers/
+│   │   ├── store
+│   │
+│   ├── firebase/
+│   ├── App.js
+│   ├── index.js
+│
+├── package.json
+├── README.md
+└── .gitignore
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🖥️ Tech Stack
+- **Frontend:** React.js, Redux, React Router, Bootstrap  
+- **Backend / Database:** Firebase  
+- **API:** DummyJSON Product API  
+- **State Management:** Redux  
+- **Hosting:** Netlify  
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ✨ Features
+✅ User authentication (Signup / Login via Firebase)  
+✅ Browse products (fetched from DummyJSON API)  
+✅ Add to Cart & Wishlist functionality  
+✅ Update product quantities and remove items  
+✅ Place order simulation  
+✅ Registered users displayed on Signup page  
+✅ Responsive UI with Bootstrap  
+✅ Deployed on Netlify  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ⚙️ Installation and Setup
+Follow the steps below to run **Exclusive** locally 👇
 
-### `npm run eject`
+```bash
+# Clone this repository
+git clone https://github.com/vivuchauhan/Exclusive.git
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Navigate into the project folder
+cd exclusive
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Install dependencies
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Start the development server
+npm start
