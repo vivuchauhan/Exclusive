@@ -1,8 +1,17 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './css/portfolio.css';
 import ResumePDF from './assets/vivek.chauhan.resume.pdf'; 
 import profilePhoto from './assets/profile-photo.png';
+import evivek from './assets/portfolio/evivek.png'
+import foramhealthcare from './assets/portfolio/foramhealthare.png'
+import ethicsinfotech from './assets/portfolio/ethicsinfotech.png'
+import ethicspos from './assets/portfolio/ethicspos.png'
+import genericremedy from './assets/portfolio/genericremedy.png'
+import ethicsgroup from './assets/portfolio/ethicsgroup.png'
+import recovrindia from './assets/portfolio/recovrindia.png'
+import kabzease from './assets/portfolio/kabzease.png'
+import customersupport from './assets/portfolio/customerportal.png'
 
 const Portfolio = () => {
   const [formData, setFormData] = useState({
@@ -11,36 +20,73 @@ const Portfolio = () => {
     message: ''
   });
 
-  const projects = [
-    {
-      id: 1,
-      title: "E-Commerce App",
-      description: "A full-featured React e-commerce app using Redux and Firebase.",
-      image: "https://via.placeholder.com/300x200",
-      link: "#"
-    },
-    {
-      id: 2,
-      title: "Portfolio Website",
-      description: "Personal portfolio built with React and Bootstrap.",
-      image: "https://via.placeholder.com/300x200",
-      link: "#"
-    },
-    {
-      id: 3,
-      title: "Weather App",
-      description: "Weather forecasting app using React and OpenWeather API.",
-      image: "https://via.placeholder.com/300x200",
-      link: "#"
-    },
-    {
-      id: 4,
-      title: "Task Manager",
-      description: "Task management app with drag-and-drop functionality using React DnD.",
-      image: "https://via.placeholder.com/300x200",
-      link: "#"
-    }
-  ];
+const projects = [
+  {
+    id: 1,
+    title: "Exclusive",
+    description: "A modern React-based eCommerce platform offering seamless shopping experiences with dynamic product listings, cart management, and Firebase authentication.",
+    image: `${evivek}`,
+    link: "https://evivek.netlify.app/",
+    code: "https://github.com/vivuchauhan/Exclusive"
+  },
+  {
+    id: 2,
+    title: "Foram Healthcare",
+    description: "A professional healthcare website built with React and Bootstrap, showcasing medical services, treatment details, and easy appointment booking for patients.",
+    image: `${foramhealthcare}`,
+    link: "https://foramhealthcare.co.in/"
+  },
+  {
+    id: 3,
+    title: "Ethics Infotech",
+    description: "Corporate website for a leading IT solutions provider, featuring company overview, services, client portfolio, and contact management system.",
+    image: `${ethicsinfotech}`,
+    link: "https://ethicsinfotech.in/"
+  },
+  {
+    id: 4,
+    title: "Ethics POS",
+    description: "Product website highlighting a cloud-based Point of Sale solution with inventory management, billing, and analytics features for retail businesses.",
+    image: `${ethicspos}`,
+    link: "https://ethicspos.io/"
+  },
+  {
+    id: 5,
+    title: "Generic Remedy",
+    description: "A pharmacy eCommerce website enabling users to browse, compare, and order genuine medicines and healthcare products online with ease.",
+    image: `${genericremedy}`,
+    link: "https://genericremedy.com/"
+  },
+  {
+    id: 6,
+    title: "Ethics Group",
+    description: "A corporate website representing the Ethics Group’s diversified business verticals with modern UI and responsive design for a professional brand presence.",
+    image: `${ethicsgroup}`,
+    link: "https://ethicsgroup.in/"
+  },
+  {
+    id: 7,
+    title: "Customer Portal",
+    description: "A self-service portal where customers can access invoices, manage profiles, and raise service requests — built with React for fast performance.",
+    image: `${customersupport}`,
+    link: "https://customer-self-portal.netlify.app/"
+  },
+  {
+    id: 8,
+    title: "Recovr India",
+    description: "A healthcare recovery platform focused on physiotherapy and rehabilitation services, with intuitive UI and integrated appointment booking features.",
+    image: `${recovrindia}`,
+    link: "https://recovrindia.com/"
+  },
+  {
+    id: 9,
+    title: "Kabzease",
+    description: "A digital waste management and recycling platform connecting users with collection services — designed for efficiency and clean UI interactions.",
+    image: `${kabzease}`,
+    link: "https://kabzease.com/"
+  }
+];
+
 
   const skills = [
     { name: 'Reactjs', level: 75 },
@@ -82,25 +128,27 @@ const Portfolio = () => {
     },
   ];
 
-const getBadgeColor = (skillName) => {
-  const colors = {
-    Reactjs: 'bg-info text-dark',          
-    Redux: 'bg-secondary text-light',     
-    JavaScript: 'bg-warning text-dark',    
-    'Context API': 'bg-primary text-light',
-    HTML5: 'bg-danger text-light',         
-    CSS3: 'bg-success text-light',         
-    Git: 'bg-dark text-light',             
-    Firebase: 'bg-warning text-dark',      
-    MUI: 'bg-info text-dark',              
-    Bootstrap: 'bg-purple text-light',     
-    Default: 'bg-dark text-light'          
+  const getBadgeColor = (skillName) => {
+    const colors = {
+      Reactjs: 'bg-info text-dark',          
+      Redux: 'bg-secondary text-light',     
+      JavaScript: 'bg-warning text-dark',    
+      'Context API': 'bg-primary text-light',
+      HTML5: 'bg-danger text-light',         
+      CSS3: 'bg-success text-light',         
+      Git: 'bg-dark text-light',             
+      Firebase: 'bg-warning text-dark',      
+      MUI: 'bg-info text-dark',              
+      Bootstrap: 'bg-purple text-light',     
+      Default: 'bg-dark text-light'          
+    };
+
+    return colors[skillName] || colors.Default;
   };
 
-  return colors[skillName] || colors.Default;
-};
-
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
 
   const handleInputChange = (e) => {
@@ -315,7 +363,7 @@ const getBadgeColor = (skillName) => {
                       <a href={project.link} target="_blank" className="btn btn-primary btn-sm me-2 hover-lift">
                         <i className="bi bi-eye me-1"></i>Live Demo
                       </a>
-                      <a href={project.link} target="_blank" className="btn btn-outline-primary btn-sm hover-lift">
+                      <a href={project.code} target="_blank" className="btn btn-outline-primary btn-sm hover-lift">
                         <i className="bi bi-github me-1"></i>Code
                       </a>
                     </div>

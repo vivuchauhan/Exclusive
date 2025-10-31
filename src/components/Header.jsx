@@ -63,13 +63,13 @@ function Header({ onLogout , user }){
                         <div className="offcanvas-body" style={{ justifyContent: "center" }}>
                             <ul className="navbar-nav mb-2 mb-lg-0 gap-lg-4 ">
                                 <li className="nav-item">
-                                    <Link to="/" className={`nav-link  ${location.pathname === '/' ? 'active' : 'text-dark HeaderNavItem'}`} aria-current="page">Home</Link>
+                                    <Link to="/home" className={`nav-link  ${location.pathname === '/home' ? 'active' : 'text-dark HeaderNavItem'}`} aria-current="page">Home</Link>
                                 </li>
                                 <li className='nav-item'>
                                     <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : 'text-dark HeaderNavItem'}`}>About</Link>
                                 </li>
                                 <li className='nav-item'>
-                                    <Link to="/portfolio" className={`nav-link ${location.pathname === '/portfolio' ? 'active' : 'text-dark HeaderNavItem'}`}>Portfolio</Link>
+                                    <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : 'text-dark HeaderNavItem'}`}>Portfolio</Link>
                                 </li>
                                 <li className='nav-item'>
                                     <Link to="/contact" className={`nav-link  ${location.pathname === '/contact' ? 'active' : 'text-dark HeaderNavItem'}`} >Contact</Link>

@@ -83,8 +83,8 @@ function App() {
         {/* Public routes */}
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/blog" element={<Blog />} /> 
+        <Route path="/" element={<Portfolio />} />
         <Route path="/bestSelling" element={<BestSelling />} />
         <Route path="*" element={<NotFound />} />
 
@@ -100,7 +100,7 @@ function App() {
 
         {/* Protected routes (redirect if NOT logged in) */}
         <Route
-          path="/"
+          path="/home"
           element={currentUser ? <Home /> : <Navigate to="/login" />}
         />
         <Route
