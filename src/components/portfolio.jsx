@@ -363,9 +363,11 @@ const projects = [
                       <a href={project.link} target="_blank" className="btn btn-primary btn-sm me-2 hover-lift">
                         <i className="bi bi-eye me-1"></i>Live Demo
                       </a>
-                      <a href={project.code} target="_blank" className="btn btn-outline-primary btn-sm hover-lift">
+                      {
+                        project.code && <a href={project.code} target="_blank" className="btn btn-outline-primary btn-sm hover-lift">
                         <i className="bi bi-github me-1"></i>Code
                       </a>
+                      }
                     </div>
                   </div>
                 </div>
