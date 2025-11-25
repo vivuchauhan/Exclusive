@@ -6,7 +6,7 @@ import { auth, db } from "./components/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 
-import Header from "./components/header";
+import Header from "./components/header.jsx";
 import Footer from "./components/footer";
 
 import Home from "./components/home";
